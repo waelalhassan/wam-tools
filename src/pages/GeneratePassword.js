@@ -3,6 +3,12 @@ import { useEffect, useState, useRef } from "react";
 const GeneratePassword = () => {
   const [pwd, setPwd] = useState();
 
+  const check_SL = useRef(this);
+  const check_CL = useRef(this);
+  const check_D = useRef(this);
+  const check_SC = useRef(this);
+  const length_pwd = useRef(this);
+
   const LettersL = [
     "a",
     "b",
@@ -102,9 +108,9 @@ const GeneratePassword = () => {
       let arr = [];
       let length = Math.round(len / 4);
       for (let i = 1; i <= length; i++) {
-        c += `${getRandom(false)}${getRandom(false)}${getRandom(
-          false
-        )}${getRandom(specialCharacters)}`;
+        c += `${getRandom(check_SL.current.checked ? LettersL : false )}${getRandom(check_CL.current.checked ? LettersU : false)}${getRandom(
+            check_D.current.checked ? Digits : false
+        )}${getRandom(check_SC.current.checked ? specialCharacters : false)}`;
       }
       arr.push(c);
       return shuffle(arr);
@@ -125,6 +131,7 @@ const GeneratePassword = () => {
 
       return array;
     }
+    
 
     const pwd = setLength(50);
     const sh = shuffle(pwd[0].split("")).join("");
@@ -137,6 +144,37 @@ const GeneratePassword = () => {
   return (
     <section className="gene-pwd">
       <div className="input">
+
+        <div>
+          <label htmlFor="s-l">Includes small letters </label>
+          <input ref={check_SL} type="checkbox" id="s-l" />
+        </div>
+        <div>
+          <label htmlFor="c-l">Includes capital letters </label>
+          <input ref={check_CL} type="checkbox" id="c-l" />
+        </div>
+        <div>
+          <label htmlFor="s-c">Includes special characters </label>
+          <input ref={check_SC} type="checkbox" id="s-c" />
+        </div>
+        <div>
+          <label htmlFor="d">Includes digits </label>
+          <input ref={check_D} type="checkbox" id="d" />
+        </div>
+        <div>
+          <label ref={length_pwd} htmlFor="l-p">length password </label>
+          <select id="l-p">
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+            <option>30</option>
+            <option>35</option>
+            <option>40</option>
+            <option>45</option>
+            <option>50</option>
+          </select>
+        </div>
+
         <button onClick={handleGenePwd} type="button">
           Generate
         </button>
