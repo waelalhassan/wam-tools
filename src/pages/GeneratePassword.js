@@ -8,6 +8,7 @@ const GeneratePassword = () => {
   const check_D = useRef(this);
   const check_SC = useRef(this);
   const length_pwd = useRef(this);
+  const HandlerButton = useRef(this);
 
   const LettersL = [
     "a",
@@ -93,6 +94,61 @@ const GeneratePassword = () => {
     "?",
   ];
 
+  function get_number_ch() {
+    const list_ch = [
+      check_SL.current.checked,
+      check_CL.current.checked,
+      check_D.current.checked,
+      check_SC.current.checked,
+    ];
+    return list_ch.filter((c) => {
+      return c == true;
+    });
+  }
+
+  useEffect(() => {
+    console.log(check_SL.current.checked);
+    if (get_number_ch().length < 1) {
+      HandlerButton.current.disabled = true;
+    }
+  }, []);
+
+  function disable_btn(RefName) {
+    if (RefName.current.checked) {
+      HandlerButton.current.disabled = false;
+    } else {
+      HandlerButton.current.disabled = true;
+    }
+  }
+
+  function Enable_btn() {
+    if (get_number_ch().length > 0) {
+      HandlerButton.current.disabled = false;
+    } else {
+      HandlerButton.current.disabled = true;
+    }
+  }
+
+  const handleCheck_CL = () => {
+    disable_btn(check_CL);
+    Enable_btn();
+  };
+
+  const handleCheck_SC = () => {
+    disable_btn(check_SC);
+    Enable_btn();
+  };
+
+  const handleCheck_SL = () => {
+    disable_btn(check_SL);
+    Enable_btn();
+  };
+
+  const handleCheck_D = () => {
+    disable_btn(check_D);
+    Enable_btn();
+  };
+
   const handleGenePwd = () => {
     function getRandom(array) {
       const r = Math.floor(Math.random() * array.length);
@@ -106,10 +162,14 @@ const GeneratePassword = () => {
     function setLength(len) {
       let c = "";
       let arr = [];
-      let length = Math.round(len / 4);
+
+      let length = Math.round(len / get_number_ch().length);
+
       for (let i = 1; i <= length; i++) {
-        c += `${getRandom(check_SL.current.checked ? LettersL : false )}${getRandom(check_CL.current.checked ? LettersU : false)}${getRandom(
-            check_D.current.checked ? Digits : false
+        c += `${getRandom(
+          check_SL.current.checked ? LettersL : false
+        )}${getRandom(check_CL.current.checked ? LettersU : false)}${getRandom(
+          check_D.current.checked ? Digits : false
         )}${getRandom(check_SC.current.checked ? specialCharacters : false)}`;
       }
       arr.push(c);
@@ -131,11 +191,9 @@ const GeneratePassword = () => {
 
       return array;
     }
-    
 
-    const pwd = setLength(50);
+    const pwd = setLength(length_pwd.current.value);
     const sh = shuffle(pwd[0].split("")).join("");
-    console.log(sh);
     setPwd((p) => {
       return (p = sh);
     });
@@ -144,26 +202,45 @@ const GeneratePassword = () => {
   return (
     <section className="gene-pwd">
       <div className="input">
-
         <div>
           <label htmlFor="s-l">Includes small letters </label>
-          <input ref={check_SL} type="checkbox" id="s-l" />
+          <input
+            ref={check_SL}
+            onChange={handleCheck_SL}
+            type="checkbox"
+            id="s-l"
+          />
         </div>
         <div>
           <label htmlFor="c-l">Includes capital letters </label>
-          <input ref={check_CL} type="checkbox" id="c-l" />
+          <input
+            ref={check_CL}
+            onChange={handleCheck_CL}
+            type="checkbox"
+            id="c-l"
+          />
         </div>
         <div>
           <label htmlFor="s-c">Includes special characters </label>
-          <input ref={check_SC} type="checkbox" id="s-c" />
+          <input
+            ref={check_SC}
+            onChange={handleCheck_SC}
+            type="checkbox"
+            id="s-c"
+          />
         </div>
         <div>
           <label htmlFor="d">Includes digits </label>
-          <input ref={check_D} type="checkbox" id="d" />
+          <input
+            ref={check_D}
+            onChange={handleCheck_D}
+            type="checkbox"
+            id="d"
+          />
         </div>
         <div>
-          <label ref={length_pwd} htmlFor="l-p">length password </label>
-          <select id="l-p">
+          <label htmlFor="l-p">length password </label>
+          <select ref={length_pwd} id="l-p" defaultValue={10}>
             <option>10</option>
             <option>15</option>
             <option>20</option>
@@ -175,7 +252,7 @@ const GeneratePassword = () => {
           </select>
         </div>
 
-        <button onClick={handleGenePwd} type="button">
+        <button ref={HandlerButton} onClick={handleGenePwd} type="button">
           Generate
         </button>
       </div>
