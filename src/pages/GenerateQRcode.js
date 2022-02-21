@@ -3,7 +3,9 @@ import { useEffect, useLayoutEffect, useState, useRef } from "react";
 const GenerateQRcode = () => {
   const srcImg = useRef(this);
   const inputText = useRef(this);
-  
+
+  const [checkForDownload, setCheck] = useState(false);
+
   const alert = document.createElement("div");
   const handleGenQR = () => {
     if (inputText.current.value != "") {
@@ -26,6 +28,10 @@ const GenerateQRcode = () => {
         img.src = fa;
         window.URL.revokeObjectURL(img);
         srcImg.current.appendChild(img);
+
+        if (srcImg.current.children.length == 1) {
+          setCheck((c) => (c = true));
+        }
       }
     } else {
       alert.textContent = "text empty";
@@ -45,12 +51,15 @@ const GenerateQRcode = () => {
     <section className="gene-qrcode">
       <div className="input">
         <input ref={inputText} type="text" />
-        <button on onClick={handleGenQR} type="button">
+        <button onClick={handleGenQR} type="button">
           Generate
         </button>
-        <button onClick={handleDownloadQr} type="button">
-          Download
-        </button>
+
+        {checkForDownload && (
+          <button onClick={handleDownloadQr} type="button">
+            Download
+          </button>
+        )}
       </div>
       <div ref={srcImg} className="output"></div>
     </section>
