@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 
 const TextTool = () => {
+  const [numChar, setNumChar] = useState(0);
+  const [numWords, setNumWords] = useState(0);
   const upper = useRef(this);
 
   const handleUppercase = () => {
@@ -21,10 +23,25 @@ const TextTool = () => {
     }
   };
 
+  const handleLength = () => {
+    function NumberWords(string) {
+      return string.split(" ").filter((a) => {
+        if (a !== "") return a;
+      }).length;
+    }
+
+    setNumChar((NC) => (NC = upper.current.value.length));
+    setNumWords((NW) => (NW = NumberWords(upper.current.value)));
+  };
+
   return (
     <section className="text-tool">
+      <div className="output">
+        <span>Number of characters: {numChar}</span>
+        <span>Number of words: {numWords}</span>
+      </div>
       <div className="input">
-        <textarea ref={upper}></textarea>
+        <textarea ref={upper} onChange={handleLength}></textarea>
       </div>
       <div className="controls-btns">
         <button onClick={handleUppercase} type="button">
@@ -37,7 +54,6 @@ const TextTool = () => {
           First letter uppercase
         </button>
       </div>
-      <div className="output"></div>
     </section>
   );
 };
