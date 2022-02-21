@@ -4,6 +4,7 @@ import Base64Encode from "./pages/Base64Encode";
 import Base64Decode from "./pages/Base64Decode";
 import AgeCalculator from "./pages/AgeCalculator";
 import GeneratePassword from "./pages/GeneratePassword";
+import TextTool from "./pages/TextTool";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/base64-decode" element={<Base64Decode />} />
         <Route path="/age-calculator" element={<AgeCalculator />} />
         <Route path="/generate-password" element={<GeneratePassword />} />
+        <Route path="/text-tool" element={<TextTool />}/>
       </Routes>
     </Router>
   );

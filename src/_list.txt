@@ -6,12 +6,16 @@ calculate_percentage.js
 rgb-color-to-hex-color.js
 hex-color-to-rgb-color.js
 hex-color-to-filter-css.js
+
 GeneratePassword.js
 generate-dropshadow.js
 generate-md5-hash.js
 generate-QRcode.js
-length-word.js
-length-characters.js
-make-string-uppercase.js
-make-string-lowercase.js
-make-fisrt-letter-uppercase.js
+
+text-tool [
+    length-word.js
+    length-characters.js
+    make-string-uppercase.js
+    make-string-lowercase.js
+    make-fisrt-letter-uppercase.js
+]

@@ -8,16 +8,19 @@ const Home = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/base64-decode">base64 decode</Link>
+          <Link to="/base64-decode">Base64 decode</Link>
         </li>
         <li>
-          <Link to="/base64-encode">base64 encode</Link>
+          <Link to="/base64-encode">Base64 encode</Link>
         </li>
         <li>
-          <Link to="/age-calculator">age calculator</Link>
+          <Link to="/age-calculator">Age calculator</Link>
         </li>
         <li>
-          <Link to="/generate-password">generate password</Link>
+          <Link to="/generate-password">Generate password</Link>
+        </li>
+        <li>
+          <Link to="/text-tool">Text tool</Link>
         </li>
       </ul>
     </main>
