@@ -10,7 +10,7 @@ hex-color-to-filter-css.js
 GeneratePassword.js
 generate-dropshadow.js
 generate-md5-hash.js
-generate-QRcode.js
+GenerateQRcode
 
 text-tool [
     length-word.js
@@ -19,3 +19,4 @@ text-tool [
     make-string-lowercase.js
     make-fisrt-letter-uppercase.js
 ]
+

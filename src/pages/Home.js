@@ -22,6 +22,9 @@ const Home = () => {
         <li>
           <Link to="/text-tool">Text tool</Link>
         </li>
+        <li>
+          <Link to="/generate-QRcode">Generate QRcode</Link>
+        </li>
       </ul>
     </main>
   );

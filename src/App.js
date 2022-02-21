@@ -5,6 +5,7 @@ import Base64Decode from "./pages/Base64Decode";
 import AgeCalculator from "./pages/AgeCalculator";
 import GeneratePassword from "./pages/GeneratePassword";
 import TextTool from "./pages/TextTool";
+import GenerateQRcode from "./pages/GenerateQRcode";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/age-calculator" element={<AgeCalculator />} />
         <Route path="/generate-password" element={<GeneratePassword />} />
         <Route path="/text-tool" element={<TextTool />}/>
+        <Route path="/generate-QRcode" element={<GenerateQRcode />}/>
       </Routes>
     </Router>
   );
