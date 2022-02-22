@@ -31,6 +31,9 @@ const Home = () => {
         <li>
           <Link to="/generate-shadow">Generate css shadow</Link>
         </li>
+        <li>
+          <Link to="/generate-MD5-hash">Generate MD5 Hash</Link>
+        </li>
       </ul>
     </main>
   );

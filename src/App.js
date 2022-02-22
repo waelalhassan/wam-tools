@@ -8,7 +8,7 @@ import TextTool from "./pages/TextTool";
 import GenerateQRcode from "./pages/GenerateQRcode";
 import RgbToHex from "./pages/RgbToHex";
 import GenerateShadow from "./pages/GenerateShadow";
-
+import GenerateMD5Hash from "./pages/GenerateMD5Hash";
 
 const App = () => {
   return (
@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/generate-QRcode" element={<GenerateQRcode />}/>
         <Route path="/rgb-color-to-hex-color" element={<RgbToHex />}/>
         <Route path="/generate-shadow" element={<GenerateShadow />}/>
+        <Route path="/generate-MD5-hash" element={<GenerateMD5Hash />}/>
       </Routes>
     </Router>
   );

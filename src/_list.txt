@@ -10,7 +10,7 @@ hex-color-to-filter-css.js
 
 GeneratePassword.js down
 GenerateDropshadow.js
-generate-md5-hash.js
+GenerateMD5Hash.js
 GenerateQRcode down
 
 text-tool [ down
