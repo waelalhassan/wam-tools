@@ -25,6 +25,9 @@ const Home = () => {
         <li>
           <Link to="/generate-QRcode">Generate QRcode</Link>
         </li>
+        <li>
+          <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
+        </li>
       </ul>
     </main>
   );

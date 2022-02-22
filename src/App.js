@@ -6,6 +6,7 @@ import AgeCalculator from "./pages/AgeCalculator";
 import GeneratePassword from "./pages/GeneratePassword";
 import TextTool from "./pages/TextTool";
 import GenerateQRcode from "./pages/GenerateQRcode";
+import RgbToHex from "./pages/RgbToHex";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/generate-password" element={<GeneratePassword />} />
         <Route path="/text-tool" element={<TextTool />}/>
         <Route path="/generate-QRcode" element={<GenerateQRcode />}/>
+        <Route path="/rgb-color-to-hex-color" element={<RgbToHex />}/>
       </Routes>
     </Router>
   );
