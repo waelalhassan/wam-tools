@@ -1,6 +1,6 @@
 
 base64_encode.js down
-base64_decode.js
+base64_decode.js down
 age_calculator.js
 calculate_percentage.js
 
@@ -9,8 +9,8 @@ hex-color-to-rgb-color.js
 hex-color-to-filter-css.js
 
 GeneratePassword.js down
-GenerateDropshadow.js
-GenerateMD5Hash.js
+GenerateDropshadow.js down
+GenerateMD5Hash.js down
 GenerateQRcode down
 
 text-tool [ down
