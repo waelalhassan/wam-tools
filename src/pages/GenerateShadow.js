@@ -9,7 +9,7 @@ const GenerateShadow = () => {
   const [BoxShadow, setBoxShadow] = useState("");
   const [getType, setType] = useState("outset");
 
-  const RefForm = useRef(this);
+    const RefCode = useRef(this);
 
   const handlerXOffset = (event) => {
     setXOffset((x) => (x = event.target.value));
@@ -45,7 +45,11 @@ const GenerateShadow = () => {
         getType == "inset" ? "inset" : ""
       } ${XOffset}px ${YOffset}px ${Blur}px ${Spread}px ${Color}`);
     });
-  }, [XOffset, YOffset, Blur, Spread, Color, getType]);
+
+    RefCode.current.value = `-moz-box-shadow:${BoxShadow};-webkit-box-shadow: ${BoxShadow}; box-shadow:${BoxShadow};`;
+    
+
+  }, [BoxShadow, XOffset, YOffset, Blur, Spread, Color, getType]);
 
   const boxReview = {
     margin: "70px",
@@ -128,8 +132,8 @@ const GenerateShadow = () => {
         </div>
       </div>
       <div className="output">
-        <div>{BoxShadow}</div>
         <div style={boxReview} className="box-review"></div>
+        <textarea ref={RefCode}></textarea>
       </div>
     </section>
   );
