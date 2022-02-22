@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 
 const GenerateShadow = () => {
-  const [XOffset, setXOffset] = useState(0);
-  const [YOffset, setYOffset] = useState(0);
-  const [Blur, setBlur] = useState(0);
+  const [XOffset, setXOffset] = useState(3);
+  const [YOffset, setYOffset] = useState(1);
+  const [Blur, setBlur] = useState(12);
   const [Spread, setSpread] = useState(0);
-  const [Color, setColor] = useState("#000000");
+  const [Color, setColor] = useState("#d6d6d6");
   const [BoxShadow, setBoxShadow] = useState("");
+  const [getType, setType] = useState("outset");
+
+  const RefForm = useRef(this);
 
   const handlerXOffset = (event) => {
     setXOffset((x) => (x = event.target.value));
@@ -28,11 +31,21 @@ const GenerateShadow = () => {
     setColor((color) => (color = event.target.value));
   };
 
+  const handlerType = (event) => {
+    if (event.target.getAttribute("data-type") === "inset") {
+      setType((t) => (t = "inset"));
+    } else {
+      setType((t) => (t = "outset"));
+    }
+  };
+
   useEffect(() => {
     setBoxShadow((shadow) => {
-      return (shadow = `${XOffset}px ${YOffset}px ${Blur}px ${Spread}px ${Color}`);
+      return (shadow = `${
+        getType == "inset" ? "inset" : ""
+      } ${XOffset}px ${YOffset}px ${Blur}px ${Spread}px ${Color}`);
     });
-  }, [XOffset, YOffset, Blur, Spread, Color]);
+  }, [XOffset, YOffset, Blur, Spread, Color, getType]);
 
   const boxReview = {
     margin: "70px",
@@ -48,9 +61,22 @@ const GenerateShadow = () => {
         <div>
           <form>
             <label htmlFor="outset">Outset</label>
-            <input type="radio" defaultChecked name="type_shadow" id="outset" />
+            <input
+              onChange={handlerType}
+              data-type="outset"
+              type="radio"
+              defaultChecked
+              name="type_shadow"
+              id="outset"
+            />
             <label htmlFor="inset">Inset</label>
-            <input type="radio" name="type_shadow" id="inset" />
+            <input
+              onChange={handlerType}
+              data-type="inset"
+              type="radio"
+              name="type_shadow"
+              id="inset"
+            />
           </form>
         </div>
         <div>
@@ -98,7 +124,7 @@ const GenerateShadow = () => {
           <span>{Spread}</span>
         </div>
         <div>
-          <input onChange={handlerColor} type="color" />
+          <input onChange={handlerColor} defaultValue={Color} type="color" />
         </div>
       </div>
       <div className="output">
