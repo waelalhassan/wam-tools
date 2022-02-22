@@ -20,11 +20,14 @@ main .list-nav {
     width: 70%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    height: 200px;
+    height: 100px;
 }
 
+main .list-nav li {
+    width: 20%;
+}
 
 main .list-nav li a {
     background-color: #FFF;

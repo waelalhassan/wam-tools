@@ -28,6 +28,9 @@ const Home = () => {
         <li>
           <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
         </li>
+        <li>
+          <Link to="/generate-shadow">Generate css shadow</Link>
+        </li>
       </ul>
     </main>
   );

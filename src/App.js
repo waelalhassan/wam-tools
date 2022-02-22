@@ -7,6 +7,8 @@ import GeneratePassword from "./pages/GeneratePassword";
 import TextTool from "./pages/TextTool";
 import GenerateQRcode from "./pages/GenerateQRcode";
 import RgbToHex from "./pages/RgbToHex";
+import GenerateShadow from "./pages/GenerateShadow";
+
 
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
         <Route path="/text-tool" element={<TextTool />}/>
         <Route path="/generate-QRcode" element={<GenerateQRcode />}/>
         <Route path="/rgb-color-to-hex-color" element={<RgbToHex />}/>
+        <Route path="/generate-shadow" element={<GenerateShadow />}/>
       </Routes>
     </Router>
   );
