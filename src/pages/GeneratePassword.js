@@ -216,6 +216,10 @@ const GeneratePassword = () => {
     }, 1000);
   };
 
+  const handlerClearResult = () => {
+    setPwd((p) => p = "The password will appear here...");
+  }
+
   return (
     <>
       <Nav />
@@ -283,7 +287,7 @@ const GeneratePassword = () => {
 
             <div className="output">
               <div className="task-bar">
-                <button type="button">
+                <button onClick={handlerClearResult} type="button">
                   <ImSpinner11 />
                 </button>
                 <button onClick={handlerCopy} type="button">

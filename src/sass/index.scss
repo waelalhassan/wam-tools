@@ -148,34 +148,35 @@ generate password page
       }
     }
     .output {
-        .task-bar {
-            display: flex;
-            justify-content: flex-end;
-            padding: 5px 0;
-            button {
-                color: $textColor;
-                margin: 0 0 0 10px;
-                transition: all .3s ease;
-                background-color: transparent;
-                svg {
-                    font-size: 15px;
-                }
-                span > svg {
-                    color: $mainColor;
-                }
-                &:active {
-                    transform: scale(1.1);
-                    color: $mainColor;
-                }
-            }
+      .task-bar {
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px 0;
+        button {
+          color: $textColor;
+          margin: 0 0 0 20px;
+          padding: 3px;
+          transition: all 0.3s ease;
+          background-color: transparent;
+          svg {
+            font-size: 15px;
+          }
+          span > svg {
+            color: $mainColor;
+          }
+          &:active {
+            transform: scale(1.1);
+            color: $mainColor;
+          }
         }
-        .result {
-            background-color: #fff;
-            height: 200px;
-            border-radius: 4px;
-            box-shadow: inset 0px 1px 5px 0px $borderColor;
-            padding: 15px;
-        }
+      }
+      .result {
+        background-color: #fff;
+        height: 200px;
+        border-radius: 4px;
+        box-shadow: inset 0px 1px 5px 0px $borderColor;
+        padding: 15px;
+      }
     }
   }
 }
