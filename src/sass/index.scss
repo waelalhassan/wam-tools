@@ -185,63 +185,126 @@ generate password page
 generate QRcode
 ---------------------------------*/
 .wrapper-gene-qrcode {
-    .gene-qrcode {
-        width: 60%;
-        padding: 2rem 0;
-        margin: 0 auto;
-        header {
-            text-align: center;
-            margin: 2rem 0;
-            h1 {
-              margin-bottom: 1rem;
-            }
-        }
-        .input {
-            text-align: center;
-            .alert-error {
-                color: red;
-                padding: 5px;
-            }
-            input {
-                width: 100%;
-                margin: 0 auto;
-                display: block;
-                box-shadow: inset 0px 1px 5px 0px $borderColor;
-                padding: 10px;
-            }
-            button {
-                padding: 7px 30px;
-                margin: 29px 0;
-                background-color: $mainColor;
-                color: #FFF;
-                display: inline-block;
-                font-weight: bold;
-                text-transform: uppercase;
-                border-radius: 4px;
-                transition: all .3s ease;
-                &:hover {
-                    box-shadow: 0px 0px 15px 0px $borderColor;
-                }
-            }
-            .btn-download {
-                background-color: #59c359;
-            }
-        }
-        .output {
-            background-color: #fff;
-            height: 200px;
-            border-radius: 4px;
-            box-shadow: inset 0px 1px 5px 0px $borderColor;
-            padding: 15px;
-            .QR-code {
-                font-size: 4rem;
-                user-select: none;
-            }
-        }
+  .gene-qrcode {
+    width: 60%;
+    padding: 2rem 0;
+    margin: 0 auto;
+    header {
+      text-align: center;
+      margin: 2rem 0;
+      h1 {
+        margin-bottom: 1rem;
+      }
     }
+    .input {
+      text-align: center;
+      .alert-error {
+        color: red;
+        padding: 5px;
+      }
+      input {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        box-shadow: inset 0px 1px 5px 0px $borderColor;
+        padding: 10px;
+      }
+      button {
+        padding: 7px 30px;
+        margin: 29px 0;
+        background-color: $mainColor;
+        color: #fff;
+        display: inline-block;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        &:hover {
+          box-shadow: 0px 0px 15px 0px $borderColor;
+        }
+      }
+      .btn-download {
+        background-color: #59c359;
+      }
+    }
+    .output {
+      background-color: #fff;
+      height: 200px;
+      border-radius: 4px;
+      box-shadow: inset 0px 1px 5px 0px $borderColor;
+      padding: 15px;
+      .QR-code {
+        font-size: 4rem;
+        user-select: none;
+      }
+    }
+  }
 }
 
-
+/*---------------------------------
+generate box shadow
+---------------------------------*/
+.wrapper-gene-shadow {
+  .gene-shadow {
+    width: 60%;
+    padding: 2rem 0;
+    margin: 0 auto;
+    .input {
+      margin: 1rem 0;
+      .controls {
+        .controls-1 {
+          margin-bottom: 1rem;
+          form {
+            label {
+            }
+            input[type="radio"] {
+            }
+          }
+        }
+        .controls-2 {
+          .parent-radio {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            label {
+            }
+            input[type="range"] {
+            }
+            span {
+            }
+          }
+        }
+      }
+    }
+    .output {
+      .task-bar {
+        display: flex;
+        justify-content: flex-end;
+        button {
+          padding: 5px;
+          background-color: transparent;
+          svg {
+            font-size: 15px;
+          }
+        }
+      }
+      .result {
+        background-color: #fff;
+        height: 200px;
+        border-radius: 4px;
+        box-shadow: inset 0px 1px 5px 0px $borderColor;
+        padding: 15px;
+      }
+    }
+    .box-review {
+      user-select: none;
+      span {
+        font-size: 2rem;
+        opacity: 0.5;
+      }
+    }
+  }
+}
 
 /*---------------------------------
 footer
