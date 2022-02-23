@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const TextTool = () => {
   const [numChar, setNumChar] = useState(0);
@@ -35,26 +37,30 @@ const TextTool = () => {
   };
 
   return (
-    <section className="text-tool">
-      <div className="output">
-        <span>Number of characters: {numChar}</span>
-        <span>Number of words: {numWords}</span>
-      </div>
-      <div className="input">
-        <textarea ref={upper} onChange={handleLength}></textarea>
-      </div>
-      <div className="controls-btns">
-        <button onClick={handleUppercase} type="button">
-          Uppercase
-        </button>
-        <button onClick={handleLowercase} type="button">
-          Lowercase
-        </button>
-        <button onClick={handleFirstLetterUpper} type="button">
-          First letter uppercase
-        </button>
-      </div>
-    </section>
+    <>
+      <Nav />
+      <section className="text-tool">
+        <div className="output">
+          <span>Number of characters: {numChar}</span>
+          <span>Number of words: {numWords}</span>
+        </div>
+        <div className="input">
+          <textarea ref={upper} onChange={handleLength}></textarea>
+        </div>
+        <div className="controls-btns">
+          <button onClick={handleUppercase} type="button">
+            Uppercase
+          </button>
+          <button onClick={handleLowercase} type="button">
+            Lowercase
+          </button>
+          <button onClick={handleFirstLetterUpper} type="button">
+            First letter uppercase
+          </button>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 };
 

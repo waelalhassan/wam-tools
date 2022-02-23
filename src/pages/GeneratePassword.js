@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const GeneratePassword = () => {
   const [pwd, setPwd] = useState();
@@ -200,64 +202,68 @@ const GeneratePassword = () => {
   };
 
   return (
-    <section className="gene-pwd">
-      <div className="input">
-        <div>
-          <label htmlFor="s-l">Includes small letters </label>
-          <input
-            ref={check_SL}
-            onChange={handleCheck_SL}
-            type="checkbox"
-            id="s-l"
-          />
-        </div>
-        <div>
-          <label htmlFor="c-l">Includes capital letters </label>
-          <input
-            ref={check_CL}
-            onChange={handleCheck_CL}
-            type="checkbox"
-            id="c-l"
-          />
-        </div>
-        <div>
-          <label htmlFor="s-c">Includes special characters </label>
-          <input
-            ref={check_SC}
-            onChange={handleCheck_SC}
-            type="checkbox"
-            id="s-c"
-          />
-        </div>
-        <div>
-          <label htmlFor="d">Includes digits </label>
-          <input
-            ref={check_D}
-            onChange={handleCheck_D}
-            type="checkbox"
-            id="d"
-          />
-        </div>
-        <div>
-          <label htmlFor="l-p">length password </label>
-          <select ref={length_pwd} id="l-p" defaultValue={10}>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>30</option>
-            <option>35</option>
-            <option>40</option>
-            <option>45</option>
-            <option>50</option>
-          </select>
-        </div>
+    <>
+      <Nav />
+      <section className="gene-pwd">
+        <div className="input">
+          <div>
+            <label htmlFor="s-l">Includes small letters </label>
+            <input
+              ref={check_SL}
+              onChange={handleCheck_SL}
+              type="checkbox"
+              id="s-l"
+            />
+          </div>
+          <div>
+            <label htmlFor="c-l">Includes capital letters </label>
+            <input
+              ref={check_CL}
+              onChange={handleCheck_CL}
+              type="checkbox"
+              id="c-l"
+            />
+          </div>
+          <div>
+            <label htmlFor="s-c">Includes special characters </label>
+            <input
+              ref={check_SC}
+              onChange={handleCheck_SC}
+              type="checkbox"
+              id="s-c"
+            />
+          </div>
+          <div>
+            <label htmlFor="d">Includes digits </label>
+            <input
+              ref={check_D}
+              onChange={handleCheck_D}
+              type="checkbox"
+              id="d"
+            />
+          </div>
+          <div>
+            <label htmlFor="l-p">length password </label>
+            <select ref={length_pwd} id="l-p" defaultValue={10}>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>30</option>
+              <option>35</option>
+              <option>40</option>
+              <option>45</option>
+              <option>50</option>
+            </select>
+          </div>
 
-        <button ref={HandlerButton} onClick={handleGenePwd} type="button">
-          Generate
-        </button>
-      </div>
-      <div className="output">{pwd}</div>
-    </section>
+          <button ref={HandlerButton} onClick={handleGenePwd} type="button">
+            Generate
+          </button>
+        </div>
+        <div className="output">{pwd}</div>
+      </section>
+      <Footer />
+    </>
   );
 };
 

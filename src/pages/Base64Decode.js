@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const Base64Decode = () => {
   const [getCode, setCode] = useState("");
@@ -25,22 +27,26 @@ const Base64Decode = () => {
   };
 
   return (
-    <section className="wrapper-base64-decode">
-      <div className="input">
-        <textarea
-          ref={RefInput}
-          placeholder="Enter your base64 code here ..."
-        ></textarea>
-        <button onClick={handledecode} type="button">
-          Decode
-        </button>
-      </div>
-      {getError ? (
-        <div>Invalid base64 code</div>
-      ) : (
-        <div className="output">{getCode}</div>
-      )}
-    </section>
+    <>
+      <Nav />
+      <section className="wrapper-base64-decode">
+        <div className="input">
+          <textarea
+            ref={RefInput}
+            placeholder="Enter your base64 code here ..."
+          ></textarea>
+          <button onClick={handledecode} type="button">
+            Decode
+          </button>
+        </div>
+        {getError ? (
+          <div>Invalid base64 code</div>
+        ) : (
+          <div className="output">{getCode}</div>
+        )}
+      </section>
+      <Footer />
+    </>
   );
 };
 

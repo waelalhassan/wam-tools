@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Kufam&display=swap");
+@import "./custom-framework.css";
+
+$borderColor: #d6d6d6;
+$mainColor: #0a6fff;
+$darkColor: #043a87;
+$shadowColor: #d4d4d4;
+$textColor: #525252;
+$dark: #1f1f1f;
+
+body {
+  font-family: "Kufam", sans-serif;
+  color: $textColor;
+}
+
+nav {
+  border-bottom: 1px solid $borderColor;
+  box-shadow: 0px 0px 2px 0px $shadowColor;
+  .wrapper-nav {
+    position: relative;
+    max-height: 50px;
+    .brand-name {
+    }
+    ul {
+      li {
+        padding: 15px 20px;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        span {
+        }
+        .child-list {
+          position: absolute;
+          top: 100%;
+          padding: 10px 0;
+          border: 1px solid $borderColor;
+          border-top: none;
+          box-shadow: 0px 2px 6px 0px $shadowColor;
+          background-color: #fff;
+          border-radius: 4px;
+          transition: all 0.3s linear;
+          display: none;
+          li {
+            padding: 0 10px;
+            a {
+              padding: 0 10px;
+              width: 100%;
+              font-size: 15px;
+              color: $textColor;
+              padding: 7px 0;
+            }
+          }
+          &:hover {
+            display: block;
+          }
+        }
+        &:hover {
+          background-color: #fafafa;
+        }
+        &:hover > .child-list {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+main {
+  background-color: #fafafa;
+  .list-tools {
+    height: 209px;
+    ul {
+      height: inherit;
+      li {
+        a {
+          display: inline-block;
+          background-color: #fff;
+          padding: 12px 30px;
+          box-shadow: 0px 0px 2px 0px $shadowColor;
+          transition: all 0.3s ease;
+          &:hover {
+            box-shadow: 0px 1px 12px 0px $shadowColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: $dark;
+    color: #FFF;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 15px;
+}

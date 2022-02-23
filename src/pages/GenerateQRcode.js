@@ -1,4 +1,6 @@
-import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const GenerateQRcode = () => {
   const srcImg = useRef(this);
@@ -48,21 +50,25 @@ const GenerateQRcode = () => {
   };
 
   return (
-    <section className="gene-qrcode">
-      <div className="input">
-        <input ref={inputText} type="text" />
-        <button onClick={handleGenQR} type="button">
-          Generate
-        </button>
-
-        {checkForDownload && (
-          <button onClick={handleDownloadQr} type="button">
-            Download
+    <>
+      <Nav />
+      <section className="gene-qrcode">
+        <div className="input">
+          <input ref={inputText} type="text" />
+          <button onClick={handleGenQR} type="button">
+            Generate
           </button>
-        )}
-      </div>
-      <div ref={srcImg} className="output"></div>
-    </section>
+
+          {checkForDownload && (
+            <button onClick={handleDownloadQr} type="button">
+              Download
+            </button>
+          )}
+        </div>
+        <div ref={srcImg} className="output"></div>
+      </section>
+      <Footer />
+    </>
   );
 };
 

@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import md5 from "blueimp-md5";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const GenerateMD5Hash = () => {
   const [getMD5, setMD5] = useState("");
@@ -18,22 +20,26 @@ const GenerateMD5Hash = () => {
   };
 
   return (
-    <section className="md5-hash">
-      <div className="input">
-        <textarea ref={RefInput}></textarea>
-        <button onClick={handlerMD5} type="button">
-          Generate
-        </button>
-      </div>
-      {getMD5 !== "" && (
-        <div className="output">
-          <p>Your String {RefInput.current.value}</p>
-          <p>
-            MD5 Hash {getMD5} <span onClick={handlerCopyMD5}>Copy</span>
-          </p>
+    <>
+      <Nav />
+      <section className="md5-hash">
+        <div className="input">
+          <textarea ref={RefInput}></textarea>
+          <button onClick={handlerMD5} type="button">
+            Generate
+          </button>
         </div>
-      )}
-    </section>
+        {getMD5 !== "" && (
+          <div className="output">
+            <p>Your String {RefInput.current.value}</p>
+            <p>
+              MD5 Hash {getMD5} <span onClick={handlerCopyMD5}>Copy</span>
+            </p>
+          </div>
+        )}
+      </section>
+      <Footer />
+    </>
   );
 };
 

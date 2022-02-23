@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const GenerateShadow = () => {
   const [XOffset, setXOffset] = useState(3);
@@ -9,7 +11,7 @@ const GenerateShadow = () => {
   const [BoxShadow, setBoxShadow] = useState("");
   const [getType, setType] = useState("outset");
 
-    const RefCode = useRef(this);
+  const RefCode = useRef(this);
 
   const handlerXOffset = (event) => {
     setXOffset((x) => (x = event.target.value));
@@ -47,8 +49,6 @@ const GenerateShadow = () => {
     });
 
     RefCode.current.value = `-moz-box-shadow:${BoxShadow};-webkit-box-shadow: ${BoxShadow}; box-shadow:${BoxShadow};`;
-    
-
   }, [BoxShadow, XOffset, YOffset, Blur, Spread, Color, getType]);
 
   const boxReview = {
@@ -60,82 +60,86 @@ const GenerateShadow = () => {
   };
 
   return (
-    <section className="gene-shadow">
-      <div className="input">
-        <div>
-          <form>
-            <label htmlFor="outset">Outset</label>
+    <>
+      <Nav />
+      <section className="gene-shadow">
+        <div className="input">
+          <div>
+            <form>
+              <label htmlFor="outset">Outset</label>
+              <input
+                onChange={handlerType}
+                data-type="outset"
+                type="radio"
+                defaultChecked
+                name="type_shadow"
+                id="outset"
+              />
+              <label htmlFor="inset">Inset</label>
+              <input
+                onChange={handlerType}
+                data-type="inset"
+                type="radio"
+                name="type_shadow"
+                id="inset"
+              />
+            </form>
+          </div>
+          <div>
+            <label>X offset</label>
             <input
-              onChange={handlerType}
-              data-type="outset"
-              type="radio"
-              defaultChecked
-              name="type_shadow"
-              id="outset"
+              onChange={handlerXOffset}
+              type="range"
+              min={0}
+              defaultValue={0}
+              max={20}
             />
-            <label htmlFor="inset">Inset</label>
+            <span>{XOffset}</span>
+          </div>
+          <div>
+            <label>Y offset</label>
             <input
-              onChange={handlerType}
-              data-type="inset"
-              type="radio"
-              name="type_shadow"
-              id="inset"
+              onChange={handlerYOffset}
+              type="range"
+              min={0}
+              defaultValue={0}
+              max={20}
             />
-          </form>
+            <span>{YOffset}</span>
+          </div>
+          <div>
+            <label>Blur</label>
+            <input
+              onChange={handlerBlur}
+              type="range"
+              min={0}
+              defaultValue={0}
+              max={20}
+            />
+            <span>{Blur}</span>
+          </div>
+          <div>
+            <label>Spread</label>
+            <input
+              onChange={handlerSpread}
+              type="range"
+              min={0}
+              defaultValue={0}
+              max={20}
+            />
+            <span>{Spread}</span>
+          </div>
+          <div>
+            <input onChange={handlerColor} defaultValue={Color} type="color" />
+          </div>
         </div>
-        <div>
-          <label>X offset</label>
-          <input
-            onChange={handlerXOffset}
-            type="range"
-            min={0}
-            defaultValue={0}
-            max={20}
-          />
-          <span>{XOffset}</span>
+        <div className="output">
+          <div style={boxReview} className="box-review"></div>
+          <textarea ref={RefCode}></textarea>
         </div>
-        <div>
-          <label>Y offset</label>
-          <input
-            onChange={handlerYOffset}
-            type="range"
-            min={0}
-            defaultValue={0}
-            max={20}
-          />
-          <span>{YOffset}</span>
-        </div>
-        <div>
-          <label>Blur</label>
-          <input
-            onChange={handlerBlur}
-            type="range"
-            min={0}
-            defaultValue={0}
-            max={20}
-          />
-          <span>{Blur}</span>
-        </div>
-        <div>
-          <label>Spread</label>
-          <input
-            onChange={handlerSpread}
-            type="range"
-            min={0}
-            defaultValue={0}
-            max={20}
-          />
-          <span>{Spread}</span>
-        </div>
-        <div>
-          <input onChange={handlerColor} defaultValue={Color} type="color" />
-        </div>
-      </div>
-      <div className="output">
-        <div style={boxReview} className="box-review"></div>
-        <textarea ref={RefCode}></textarea>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 };
 

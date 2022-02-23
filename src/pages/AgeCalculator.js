@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer"
 
 const AgeCalculator = () => {
   const [day, setDay] = useState(0);
@@ -69,6 +71,8 @@ const AgeCalculator = () => {
   };
 
   return (
+    <>
+    <Nav />
     <section className="age-calc">
       <div className="input">
         <select ref={Days}></select>
@@ -85,6 +89,8 @@ const AgeCalculator = () => {
         </p>
       </div>
     </section>
+    <Footer />
+    </>
   );
 };
 

@@ -1,4 +1,6 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const RgbToHex = () => {
   const [getHextColor, setHextColor] = useState("");
@@ -119,28 +121,32 @@ const RgbToHex = () => {
   };
 
   return (
-    <section className="rgb-to-hex">
-      {getMsg.err ? <div className="alert-error">{getMsg.data}</div> : ""}
+    <>
+      <Nav />
+      <section className="rgb-to-hex">
+        {getMsg.err ? <div className="alert-error">{getMsg.data}</div> : ""}
 
-      <div className="input">
-        <input ref={inputRGB} type="text" />
-        <button onClick={handleRGB} type="button">
-          Get Hex color
-        </button>
-      </div>
-      <div className="output">
-        <div className="hex-color">
-          <span>{getHextColor}</span>
+        <div className="input">
+          <input ref={inputRGB} type="text" />
+          <button onClick={handleRGB} type="button">
+            Get Hex color
+          </button>
         </div>
-        <div
-          style={{ backgroundColor: getHextColor }}
-          ref={previewHEX}
-          className="box-color-preview"
-        >
-          test
+        <div className="output">
+          <div className="hex-color">
+            <span>{getHextColor}</span>
+          </div>
+          <div
+            style={{ backgroundColor: getHextColor }}
+            ref={previewHEX}
+            className="box-color-preview"
+          >
+            test
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 };
 
