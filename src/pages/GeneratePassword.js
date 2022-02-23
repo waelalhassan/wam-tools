@@ -3,9 +3,11 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImSpinner11 } from "react-icons/im";
+import { ImCheckmark } from "react-icons/im";
 
 const GeneratePassword = () => {
   const [pwd, setPwd] = useState("The password will appear here...");
+  const [copied, setCopied] = useState(false);
 
   const check_SL = useRef(this);
   const check_CL = useRef(this);
@@ -111,7 +113,6 @@ const GeneratePassword = () => {
   }
 
   useEffect(() => {
-    console.log(check_SL.current.checked);
     if (get_number_ch().length < 1) {
       HandlerButton.current.disabled = true;
     }
@@ -203,6 +204,18 @@ const GeneratePassword = () => {
     });
   };
 
+  const handlerCopy = () => {
+    window.navigator.clipboard.writeText(pwd);
+    setCopied((c) => {
+      return (c = true);
+    });
+    setTimeout(() => {
+      setCopied((c) => {
+        return (c = false);
+      });
+    }, 1000);
+  };
+
   return (
     <>
       <Nav />
@@ -273,10 +286,10 @@ const GeneratePassword = () => {
                 <button type="button">
                   <ImSpinner11 />
                 </button>
-                <button type="button">
-                  <ImCopy />
+                <button onClick={handlerCopy} type="button">
+                  {copied ? <span><ImCheckmark /></span> : <ImCopy />}
                 </button>
-              </div>
+              </div> 
               <div className="result">{pwd}</div>
             </div>
           </div>

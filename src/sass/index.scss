@@ -155,6 +155,18 @@ generate password page
             button {
                 color: $textColor;
                 margin: 0 0 0 10px;
+                transition: all .3s ease;
+                background-color: transparent;
+                svg {
+                    font-size: 15px;
+                }
+                span > svg {
+                    color: $mainColor;
+                }
+                &:active {
+                    transform: scale(1.1);
+                    color: $mainColor;
+                }
             }
         }
         .result {
