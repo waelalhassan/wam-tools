@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { ImCopy } from "react-icons/im";
+import { ImSpinner11 } from "react-icons/im";
 
 const GeneratePassword = () => {
   const [pwd, setPwd] = useState("The password will appear here...");
@@ -265,7 +267,18 @@ const GeneratePassword = () => {
                 Generate
               </button>
             </div>
-            <div className="output">{pwd}</div>
+
+            <div className="output">
+              <div className="task-bar">
+                <button type="button">
+                  <ImSpinner11 />
+                </button>
+                <button type="button">
+                  <ImCopy />
+                </button>
+              </div>
+              <div className="result">{pwd}</div>
+            </div>
           </div>
         </div>
       </main>
