@@ -26,8 +26,11 @@ input[type="checkbox"],
 input[type="radio"],
 input[type="button"],
 input[type="submit"],
+select,
 button {
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 

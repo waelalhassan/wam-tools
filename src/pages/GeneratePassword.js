@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const GeneratePassword = () => {
-  const [pwd, setPwd] = useState();
+  const [pwd, setPwd] = useState("The password will appear here...");
 
   const check_SL = useRef(this);
   const check_CL = useRef(this);
@@ -204,64 +204,71 @@ const GeneratePassword = () => {
   return (
     <>
       <Nav />
-      <section className="gene-pwd">
-        <div className="input">
-          <div>
-            <label htmlFor="s-l">Includes small letters </label>
-            <input
-              ref={check_SL}
-              onChange={handleCheck_SL}
-              type="checkbox"
-              id="s-l"
-            />
+      <main className="wrapper-gene-pwd">
+        <div className="container">
+          <div className="gene-pwd">
+            <header>
+              <h1>Password Generator</h1>
+              <p>Generate a strong password that is impossible to guess</p>
+            </header>
+            <div className="input">
+              <div className="item">
+                <label htmlFor="s-l">Includes small letters </label>
+                <input
+                  ref={check_SL}
+                  onChange={handleCheck_SL}
+                  type="checkbox"
+                  id="s-l"
+                />
+              </div>
+              <div className="item">
+                <label htmlFor="c-l">Includes capital letters </label>
+                <input
+                  ref={check_CL}
+                  onChange={handleCheck_CL}
+                  type="checkbox"
+                  id="c-l"
+                />
+              </div>
+              <div className="item">
+                <label htmlFor="s-c">Includes special characters </label>
+                <input
+                  ref={check_SC}
+                  onChange={handleCheck_SC}
+                  type="checkbox"
+                  id="s-c"
+                />
+              </div>
+              <div className="item">
+                <label htmlFor="d">Includes digits </label>
+                <input
+                  ref={check_D}
+                  onChange={handleCheck_D}
+                  type="checkbox"
+                  id="d"
+                />
+              </div>
+              <div className="item">
+                <label htmlFor="l-p">length password </label>
+                <select ref={length_pwd} id="l-p" defaultValue={10}>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
+                  <option>30</option>
+                  <option>35</option>
+                  <option>40</option>
+                  <option>45</option>
+                  <option>50</option>
+                </select>
+              </div>
+              <button ref={HandlerButton} onClick={handleGenePwd} type="button">
+                Generate
+              </button>
+            </div>
+            <div className="output">{pwd}</div>
           </div>
-          <div>
-            <label htmlFor="c-l">Includes capital letters </label>
-            <input
-              ref={check_CL}
-              onChange={handleCheck_CL}
-              type="checkbox"
-              id="c-l"
-            />
-          </div>
-          <div>
-            <label htmlFor="s-c">Includes special characters </label>
-            <input
-              ref={check_SC}
-              onChange={handleCheck_SC}
-              type="checkbox"
-              id="s-c"
-            />
-          </div>
-          <div>
-            <label htmlFor="d">Includes digits </label>
-            <input
-              ref={check_D}
-              onChange={handleCheck_D}
-              type="checkbox"
-              id="d"
-            />
-          </div>
-          <div>
-            <label htmlFor="l-p">length password </label>
-            <select ref={length_pwd} id="l-p" defaultValue={10}>
-              <option>10</option>
-              <option>15</option>
-              <option>20</option>
-              <option>30</option>
-              <option>35</option>
-              <option>40</option>
-              <option>45</option>
-              <option>50</option>
-            </select>
-          </div>
-
-          <button ref={HandlerButton} onClick={handleGenePwd} type="button">
-            Generate
-          </button>
         </div>
-        <div className="output">{pwd}</div>
-      </section>
+      </main>
       <Footer />
     </>
   );

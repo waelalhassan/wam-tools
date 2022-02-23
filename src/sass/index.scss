@@ -9,10 +9,14 @@ $textColor: #525252;
 $dark: #1f1f1f;
 
 body {
+  position: relative;
   font-family: "Kufam", sans-serif;
   color: $textColor;
 }
 
+/*---------------------------------
+nav
+---------------------------------*/
 nav {
   border-bottom: 1px solid $borderColor;
   box-shadow: 0px 0px 2px 0px $shadowColor;
@@ -64,6 +68,9 @@ nav {
   }
 }
 
+/*---------------------------------
+home page
+---------------------------------*/
 main {
   background-color: #fafafa;
   .list-tools {
@@ -86,13 +93,77 @@ main {
   }
 }
 
+/*---------------------------------
+generate password page
+---------------------------------*/
+.wrapper-gene-pwd {
+  padding: 2rem 0;
+  .gene-pwd {
+    width: 60%;
+    margin: 2rem auto;
+    header {
+      text-align: center;
+      margin: 2rem 0;
+      h1 {
+        margin-bottom: 1rem;
+      }
+    }
+    .input {
+      text-align: center;
+      .item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        label {
+          cursor: pointer;
+        }
+        input[type="checkbox"] {
+          cursor: pointer;
+        }
+        select {
+          padding: 0 10px;
+          width: 100px;
+        }
+      }
+      button {
+        margin: 1rem 0;
+        padding: 8px 30px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #fff;
+        background-color: $mainColor;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        &:disabled {
+          background-color: $shadowColor;
+          cursor: no-drop;
+          box-shadow: none;
+        }
+        &:hover:disabled {
+          box-shadow: none;
+        }
+        &:hover {
+          box-shadow: 0px 0px 15px 0px $borderColor;
+        }
+      }
+    }
+    .output {
+      background-color: #fff;
+      height: 200px;
+      border-radius: 4px;
+      box-shadow: inset 0px 1px 5px 0px $borderColor;
+      padding: 15px;
+    }
+  }
+}
+
+/*---------------------------------
+footer
+---------------------------------*/
 footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: $dark;
-    color: #FFF;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    font-size: 15px;
+  text-align: center;
+  padding: 1rem;
+  background-color: $dark;
+  color: #fff;
+  font-size: 15px;
 }
