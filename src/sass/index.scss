@@ -97,10 +97,10 @@ main {
 generate password page
 ---------------------------------*/
 .wrapper-gene-pwd {
-  padding: 2rem 0;
   .gene-pwd {
     width: 60%;
-    margin: 2rem auto;
+    padding: 2rem 0;
+    margin: 0 auto;
     header {
       text-align: center;
       margin: 2rem 0;
@@ -180,6 +180,44 @@ generate password page
     }
   }
 }
+
+/*---------------------------------
+generate QRcode
+---------------------------------*/
+.wrapper-gene-qrcode {
+    .gene-qrcode {
+        width: 60%;
+        padding: 2rem 0;
+        margin: 0 auto;
+        .input {
+            text-align: center;
+            input {
+                width: 100%;
+                margin: 0 auto;
+                display: block;
+                box-shadow: inset 0px 1px 5px 0px $borderColor;
+                padding: 10px;
+            }
+            button {
+                padding: 7px 30px;
+                margin: 10px 0;
+                background-color: $mainColor;
+                color: #FFF;
+                display: inline-block;
+            }
+        }
+        .output {
+            text-align: center;
+            background-color: #fff;
+            height: 200px;
+            border-radius: 4px;
+            box-shadow: inset 0px 1px 5px 0px $borderColor;
+            padding: 15px;
+        }
+    }
+}
+
+
 
 /*---------------------------------
 footer

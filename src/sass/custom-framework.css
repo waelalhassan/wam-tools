@@ -73,6 +73,12 @@ display
 .d-align-center {
   align-items: center;
 }
+.d-flex-column {
+  flex-direction: column;
+}
+.d-flex-row {
+  flex-direction: row;
+}
 .d-wrap-row {
   flex-flow: wrap row;
 }

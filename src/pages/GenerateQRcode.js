@@ -7,8 +7,9 @@ const GenerateQRcode = () => {
   const inputText = useRef(this);
 
   const [checkForDownload, setCheck] = useState(false);
+  const [getMsg, setMsg] = useState("");
+  const [msg1, setMsg1] = useState("The QR code will appear here...");
 
-  const alert = document.createElement("div");
   const handleGenQR = () => {
     if (inputText.current.value != "") {
       fetch(
@@ -35,9 +36,10 @@ const GenerateQRcode = () => {
           setCheck((c) => (c = true));
         }
       }
+      setMsg((m) => (m = ""));
+      setMsg1((m) => (m = ""));
     } else {
-      alert.textContent = "text empty";
-      inputText.current.parentElement.appendChild(alert);
+      setMsg((m) => (m = "Please write text"));
     }
   };
 
@@ -52,21 +54,31 @@ const GenerateQRcode = () => {
   return (
     <>
       <Nav />
-      <section className="gene-qrcode">
-        <div className="input">
-          <input ref={inputText} type="text" />
-          <button onClick={handleGenQR} type="button">
-            Generate
-          </button>
-
-          {checkForDownload && (
-            <button onClick={handleDownloadQr} type="button">
-              Download
-            </button>
-          )}
+      <main className="wrapper-gene-qrcode">
+        <div className="container">
+          <div className="gene-qrcode">
+            <div className=" input">
+              <input
+                ref={inputText}
+                type="text"
+                placeholder="Type a text here or a URL.."
+              />
+              {getMsg === "" ? "" : <div>{getMsg}</div>}
+              <button onClick={handleGenQR} type="button">
+                Generate
+              </button>
+              {checkForDownload && (
+                <button onClick={handleDownloadQr} type="button">
+                  Download
+                </button>
+              )}
+            </div>
+            <div ref={srcImg} className="output">
+              {msg1 === "" ? "" : <div>{msg1}</div>}
+            </div>
+          </div>
         </div>
-        <div ref={srcImg} className="output"></div>
-      </section>
+      </main>
       <Footer />
     </>
   );
