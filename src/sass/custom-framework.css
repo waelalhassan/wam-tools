@@ -21,7 +21,6 @@ input[type="text"] {
   outline: none;
 }
 
-
 input[type="checkbox"],
 input[type="radio"],
 input[type="button"],
@@ -33,6 +32,9 @@ button {
   border: none;
 }
 
+.text-center {
+  text-align: center;
+}
 
 /*===========================================
 wrapper
@@ -84,6 +86,9 @@ display
 }
 .d-wrap-column {
   flex-flow: wrap column;
+}
+.place-content-center {
+  place-content: center;
 }
 
 .col-1 {

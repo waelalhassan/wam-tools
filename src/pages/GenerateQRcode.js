@@ -8,7 +8,7 @@ const GenerateQRcode = () => {
 
   const [checkForDownload, setCheck] = useState(false);
   const [getMsg, setMsg] = useState("");
-  const [msg1, setMsg1] = useState("The QR code will appear here...");
+  const [msg1, setMsg1] = useState("QR code");
 
   const handleGenQR = () => {
     if (inputText.current.value != "") {
@@ -57,24 +57,30 @@ const GenerateQRcode = () => {
       <main className="wrapper-gene-qrcode">
         <div className="container">
           <div className="gene-qrcode">
+            <header className="text-center">
+              <h1>QR code generator</h1>
+              <p>Generate QR Code Easily for Free</p>
+            </header>
             <div className=" input">
               <input
                 ref={inputText}
                 type="text"
                 placeholder="Type a text here or a URL.."
               />
-              {getMsg === "" ? "" : <div>{getMsg}</div>}
-              <button onClick={handleGenQR} type="button">
-                Generate
-              </button>
-              {checkForDownload && (
-                <button onClick={handleDownloadQr} type="button">
-                  Download
+              {getMsg === "" ? "" : <div className="alert-error">{getMsg}</div>}
+              <div className="btns d-flex d-justify-around">
+                <button onClick={handleGenQR} type="button">
+                  Generate
                 </button>
-              )}
+                {checkForDownload && (
+                  <button className="btn-download" onClick={handleDownloadQr} type="button">
+                    Download
+                  </button>
+                )}
+              </div>
             </div>
-            <div ref={srcImg} className="output">
-              {msg1 === "" ? "" : <div>{msg1}</div>}
+            <div ref={srcImg} className="d-grid place-content-center output">
+              {msg1 === "" ? "" : <div className="QR-code">{msg1}</div>}
             </div>
           </div>
         </div>
