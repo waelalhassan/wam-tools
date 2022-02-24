@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 @import "./custom-framework.css";
 
@@ -11,7 +11,7 @@ $dark: #1f1f1f;
 
 body {
   position: relative;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: $textColor;
 }
 
@@ -312,7 +312,6 @@ generate MD5 hash
 /*---------------------------------
 base64 decode
 ---------------------------------*/
-
 .wrapper-base64-decode {
   .base64-decode {
     width: 60%;
@@ -342,7 +341,6 @@ base64 decode
         @extend %styleButton;
       }
     }
-
     .output {
       .task-bar {
         display: flex;
@@ -359,6 +357,53 @@ base64 decode
   }
 }
 
+/*---------------------------------
+base64 encode
+---------------------------------*/
+.wrapper-base64-encode {
+  .base64-encode {
+    width: 60%;
+    padding: 2rem 0;
+    margin: 0 auto;
+    header {
+      margin: 1rem 0;
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+    }
+    .input {
+      textarea {
+        width: 100%;
+        resize: none;
+        font-size: 18px;
+        @extend %styleOutput;
+      }
+    }
+    .alert-error {
+      color: red;
+      font-weight: bold;
+    }
+    .controls {
+      margin: 1rem 0;
+      button {
+        @extend %styleButton;
+      }
+    }
+    .output {
+      .task-bar {
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px 0;
+        button {
+          @extend %styleCopyBtn;
+        }
+      }
+      .result {
+        @extend %styleOutput;
+      }
+    }
+  }
+}
 
 /*---------------------------------
 footer
@@ -395,6 +440,9 @@ footer {
   border-radius: 4px;
   box-shadow: inset 0px 1px 5px 0px $borderColor;
   padding: 15px;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 %styleButton {

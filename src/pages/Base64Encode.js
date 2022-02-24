@@ -1,46 +1,70 @@
 import { useState, useRef } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { ImCopy } from "react-icons/im";
+import { ImCheckmark } from "react-icons/im";
 
 const Base64Encode = () => {
   const [encode, setEncode] = useState("");
+  const [copy, setCopy] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
   const Ref = useRef();
 
   const handleEncode = () => {
-    setEncode((e) => (e = btoa(Ref.current.value)));
+    if (Ref.current.value.trim() != "") {
+      setEncode((e) => (e = btoa(Ref.current.value)));
+      setIsEmpty((i) => (i = false));
+    } else {
+      setIsEmpty((i) => (i = true));
+    }
   };
 
-  const alert = document.createElement("div");
-  const copyToClipboard = (e) => {
-    e.target.style.backgroundColor = "yellow";
-    navigator.clipboard.writeText(e.target.textContent);
-    alert.textContent = "Copyed";
-    e.target.parentElement.appendChild(alert);
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(encode);
+    setCopy((c) => (c = true));
     setTimeout(() => {
-      alert.remove();
-      e.target.style.backgroundColor = "";
-    }, 1000);
+      setCopy((c) => (c = false));
+    }, 1500);
   };
 
   return (
     <>
       <Nav />
-      <section className="wrapper-base64-encode">
-        <div className="input">
-          <textarea ref={Ref} placeholder="Enter text here .."></textarea>
-          <button onClick={handleEncode} type="button">
-            Encode
-          </button>
+      <main className="wrapper-base64-encode">
+        <div className="container">
+          <div className="base64-encode">
+            <div className="input">
+              <textarea ref={Ref} placeholder="Enter text here .."></textarea>
+            </div>
+            {isEmpty ? (
+              <div className="alert-error">Please write text</div>
+            ) : (
+              ""
+            )}
+            <div className="controls">
+              <button onClick={handleEncode} type="button">
+                Encode
+              </button>
+            </div>
+            <div className="output">
+              <div className="task-bar">
+                <button onClick={copyToClipboard} type="button">
+                  {copy ? (
+                    <span>
+                      <ImCheckmark />
+                    </span>
+                  ) : (
+                    <ImCopy />
+                  )}
+                </button>
+              </div>
+              <div className="result">
+                {encode == "" ? "Base64 code will appear here ..." : encode}
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          style={{ display: "inline-block" }}
-          onClick={copyToClipboard}
-          className="output"
-          id="base64-e-output"
-        >
-          {encode}
-        </div>
-      </section>
+      </main>
       <Footer />
     </>
   );
