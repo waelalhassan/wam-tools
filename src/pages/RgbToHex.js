@@ -1,13 +1,19 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { ImCopy } from "react-icons/im";
+import { ImCheckmark } from "react-icons/im";
 
 const RgbToHex = () => {
-  const [getHextColor, setHextColor] = useState("");
+  const [getHextColor, setHextColor] = useState("#ff0000");
   const [getMsg, setMsg] = useState({ data: "", err: false });
 
   const inputRGB = useRef(this);
   const previewHEX = useRef(this);
+
+  useEffect(() => {
+    inputRGB.current.value = "rgb(255, 0, 0)";
+  }, []);
 
   const handleRGB = () => {
     let RGB = inputRGB.current.value;
@@ -123,28 +129,47 @@ const RgbToHex = () => {
   return (
     <>
       <Nav />
-      <section className="rgb-to-hex">
-        {getMsg.err ? <div className="alert-error">{getMsg.data}</div> : ""}
+      <main className="wrapper-rgb-to-hex">
+        <div className="container">
+          <div className="rgb-to-hex">
+            <div className="input">
+              <div className="d-flex d-wrap-row">
+                <div className="col-6">
+                  <textarea
+                    ref={inputRGB}
+                    placeholder="Write RGB code here..."
+                  ></textarea>
+                  {getMsg.err ? (
+                    <div className="alert-error">{getMsg.data}</div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="col-6">
+                  <div
+                    style={{ backgroundColor: getHextColor }}
+                    ref={previewHEX}
+                    className="box-color-preview d-grid place-content-center"
+                  >
 
-        <div className="input">
-          <input ref={inputRGB} type="text" />
-          <button onClick={handleRGB} type="button">
-            Get Hex color
-          </button>
-        </div>
-        <div className="output">
-          <div className="hex-color">
-            <span>{getHextColor}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="controls">
+              <button onClick={handleRGB} type="button">
+                Get Hex color
+              </button>
+            </div>
+            <div className="output">
+              <div className="hex-color">
+                <span>{getHextColor}</span>
+              </div>
+            </div>
           </div>
-          <div
-            style={{ backgroundColor: getHextColor }}
-            ref={previewHEX}
-            className="box-color-preview"
-          >
-            test
-          </div>
         </div>
-      </section>
+      </main>
       <Footer />
     </>
   );
