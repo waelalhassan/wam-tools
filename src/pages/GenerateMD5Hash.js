@@ -8,13 +8,19 @@ import { ImCheckmark } from "react-icons/im";
 const GenerateMD5Hash = () => {
   const [getMD5, setMD5] = useState("");
   const [copy, setCopy] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
   const RefInput = useRef(this);
 
   const handlerMD5 = () => {
-    setMD5((text) => (text = md5(RefInput.current.value)));
+    if (RefInput.current.value != "") {
+      setMD5((text) => (text = md5(RefInput.current.value)));
+      setIsEmpty((i) => (i = false));
+    } else {
+      setIsEmpty((i) => (i = true));
+    }
   };
 
-  const handlerCopyMD5 = (event) => {
+  const handlerCopyMD5 = () => {
     navigator.clipboard.writeText(getMD5);
     setCopy((c) => (c = true));
     setTimeout(() => {
@@ -38,7 +44,8 @@ const GenerateMD5Hash = () => {
                 placeholder="Type text here ..."
               ></textarea>
             </div>
-            <div className="controls text-center">
+            {isEmpty ? <div className="alert-error">Please write text</div> : ""}
+            <div className="controls">
               <button onClick={handlerMD5} type="button">
                 Generate
               </button>
