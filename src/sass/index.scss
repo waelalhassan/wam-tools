@@ -406,6 +406,41 @@ base64 encode
 }
 
 /*---------------------------------
+txet tool
+---------------------------------*/
+.wrapper-text-tool {
+  .text-tool {
+    width: 60%;
+    padding: 2rem 0;
+    margin: 0 auto;
+    .task-bar {
+      .text-info {
+        
+      }
+      .parent-txet-copy {
+        button {
+
+        }
+      }
+    }
+    .input {
+      textarea {
+        @extend %styleOutput;
+        width: 100%;
+      }
+    }
+    .controls-btns {
+      margin: 1rem 0 0 0;
+      column-gap: 10px;
+      button {
+        @extend %styleButton;
+      }
+    }
+  }
+}
+
+
+/*---------------------------------
 footer
 ---------------------------------*/
 footer {

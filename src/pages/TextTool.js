@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { ImCopy } from "react-icons/im";
+import { ImCheckmark } from "react-icons/im";
 
 const TextTool = () => {
   const [numChar, setNumChar] = useState(0);
@@ -36,29 +38,49 @@ const TextTool = () => {
     setNumWords((NW) => (NW = NumberWords(upper.current.value)));
   };
 
+  const handlerCopy = () => {
+
+  }
+
   return (
     <>
       <Nav />
-      <section className="text-tool">
-        <div className="output">
-          <span>Number of characters: {numChar}</span>
-          <span>Number of words: {numWords}</span>
+      <main className="wrapper-text-tool">
+        <div className="container">
+          <div className="text-tool">
+            <div className="task-bar d-flex d-justify-between">
+              <div className="text-info">
+                <span>
+                  Number of characters: <b>{numChar}</b>{" "}
+                </span>
+                <span>
+                  Number of words: <b>{numWords}</b>{" "}
+                </span>
+              </div>
+              <div className="parent-txet-copy">
+                <button onClick={handlerCopy} type="button">
+                  <ImCopy />
+                  <ImCheckmark />
+                </button>
+              </div>
+            </div>
+            <div className="input">
+              <textarea ref={upper} onChange={handleLength}></textarea>
+            </div>
+            <div className="controls-btns d-flex">
+              <button onClick={handleUppercase} type="button">
+                Uppercase
+              </button>
+              <button onClick={handleLowercase} type="button">
+                Lowercase
+              </button>
+              <button onClick={handleFirstLetterUpper} type="button">
+                First letter uppercase
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="input">
-          <textarea ref={upper} onChange={handleLength}></textarea>
-        </div>
-        <div className="controls-btns">
-          <button onClick={handleUppercase} type="button">
-            Uppercase
-          </button>
-          <button onClick={handleLowercase} type="button">
-            Lowercase
-          </button>
-          <button onClick={handleFirstLetterUpper} type="button">
-            First letter uppercase
-          </button>
-        </div>
-      </section>
+      </main>
       <Footer />
     </>
   );
