@@ -38,9 +38,7 @@ const TextTool = () => {
     setNumWords((NW) => (NW = NumberWords(upper.current.value)));
   };
 
-  const handlerCopy = () => {
-
-  }
+  const handlerCopy = () => {};
 
   return (
     <>
@@ -48,13 +46,22 @@ const TextTool = () => {
       <main className="wrapper-text-tool">
         <div className="container">
           <div className="text-tool">
+            <header>
+              <h1>Text tool</h1>
+              <p>
+                Through this tool, you will be able to know the number of
+                characters for a specific text, in addition to that, the number
+                of words, make the text with uppercase or lowercase letters, or
+                make the first letter capitalized in the text
+              </p>
+            </header>
             <div className="task-bar d-flex d-justify-between">
               <div className="text-info">
                 <span>
-                  Number of characters: <b>{numChar}</b>{" "}
+                  <b>{numChar} </b>Characters |
                 </span>
                 <span>
-                  Number of words: <b>{numWords}</b>{" "}
+                  <b>{numWords} </b>Words
                 </span>
               </div>
               <div className="parent-txet-copy">

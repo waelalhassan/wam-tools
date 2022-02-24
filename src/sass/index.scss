@@ -13,6 +13,7 @@ body {
   position: relative;
   font-family: "Lato", sans-serif;
   color: $textColor;
+  line-height: 1.6;
 }
 
 /*---------------------------------
@@ -413,13 +414,17 @@ txet tool
     width: 60%;
     padding: 2rem 0;
     margin: 0 auto;
+    header {
+      margin: 1rem 0;
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+    }
     .task-bar {
       .text-info {
-        
       }
       .parent-txet-copy {
         button {
-
         }
       }
     }
@@ -427,10 +432,11 @@ txet tool
       textarea {
         @extend %styleOutput;
         width: 100%;
+        resize: none;
       }
     }
     .controls-btns {
-      margin: 1rem 0 0 0;
+      margin: 1rem 0 0.8rem 0;
       column-gap: 10px;
       button {
         @extend %styleButton;
@@ -438,7 +444,6 @@ txet tool
     }
   }
 }
-
 
 /*---------------------------------
 footer
