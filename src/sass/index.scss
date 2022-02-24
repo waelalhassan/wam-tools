@@ -102,10 +102,9 @@ generate password page
     padding: 2rem 0;
     margin: 0 auto;
     header {
-      text-align: center;
-      margin: 2rem 0;
+      margin: 1rem 0;
       h1 {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
     }
     .input {
@@ -127,24 +126,7 @@ generate password page
       }
       button {
         margin: 1rem 0;
-        padding: 8px 30px;
-        text-transform: uppercase;
-        font-weight: bold;
-        color: #fff;
-        background-color: $mainColor;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        &:disabled {
-          background-color: $shadowColor;
-          cursor: no-drop;
-          box-shadow: none;
-        }
-        &:hover:disabled {
-          box-shadow: none;
-        }
-        &:hover {
-          box-shadow: 0px 0px 15px 0px $borderColor;
-        }
+        @extend %styleButton;
       }
     }
     .output {
@@ -153,29 +135,11 @@ generate password page
         justify-content: flex-end;
         padding: 5px 0;
         button {
-          color: $textColor;
-          margin: 0 0 0 20px;
-          padding: 3px;
-          transition: all 0.3s ease;
-          background-color: transparent;
-          svg {
-            font-size: 15px;
-          }
-          span > svg {
-            color: $mainColor;
-          }
-          &:active {
-            transform: scale(1.1);
-            color: $mainColor;
-          }
+          @extend %styleCopyBtn;
         }
       }
       .result {
-        background-color: #fff;
-        height: 200px;
-        border-radius: 4px;
-        box-shadow: inset 0px 1px 5px 0px $borderColor;
-        padding: 15px;
+        @extend %styleOutput;
       }
     }
   }
@@ -190,10 +154,9 @@ generate QRcode
     padding: 2rem 0;
     margin: 0 auto;
     header {
-      text-align: center;
-      margin: 2rem 0;
+      margin: 1rem 0;
       h1 {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
       }
     }
     .input {
@@ -210,15 +173,8 @@ generate QRcode
         padding: 10px;
       }
       button {
-        padding: 7px 30px;
         margin: 29px 0;
-        background-color: $mainColor;
-        color: #fff;
-        display: inline-block;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 4px;
-        transition: all 0.3s ease;
+        @extend %styleButton;
         &:hover {
           box-shadow: 0px 0px 15px 0px $borderColor;
         }
@@ -228,11 +184,7 @@ generate QRcode
       }
     }
     .output {
-      background-color: #fff;
-      height: 200px;
-      border-radius: 4px;
-      box-shadow: inset 0px 1px 5px 0px $borderColor;
-      padding: 15px;
+      @extend %styleOutput;
       .QR-code {
         font-size: 4rem;
         user-select: none;
@@ -249,6 +201,12 @@ generate box shadow
     width: 60%;
     padding: 2rem 0;
     margin: 0 auto;
+    header {
+      margin: 1rem 0;
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+    }
     .input {
       margin: 1rem 0;
       .controls {
@@ -289,11 +247,7 @@ generate box shadow
         }
       }
       .result {
-        background-color: #fff;
-        height: 200px;
-        border-radius: 4px;
-        box-shadow: inset 0px 1px 5px 0px $borderColor;
-        padding: 15px;
+        @extend %styleOutput;
       }
     }
     .box-review {
@@ -301,6 +255,47 @@ generate box shadow
       span {
         font-size: 2rem;
         opacity: 0.5;
+      }
+    }
+  }
+}
+
+.wrapper-md5-hash {
+  .md5-hash {
+    width: 60%;
+    padding: 2rem 0;
+    margin: 0 auto;
+    header {
+      margin: 1rem 0;
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+    }
+    .input {
+      textarea {
+        @extend %styleOutput;
+        width: 100%;
+        resize: none;
+        font-size: 18px;
+      }
+    }
+    .controls {
+      margin: 0.5rem 0 1rem 0;
+      button {
+        @extend %styleButton;
+      }
+    }
+    .output {
+      .task-bar {
+        display: flex;
+        justify-content: flex-end;
+        padding: 3px 0;
+        button {
+          @extend %styleCopyBtn;
+        }
+      }
+      .result {
+        @extend %styleOutput;
       }
     }
   }
@@ -315,4 +310,51 @@ footer {
   background-color: $dark;
   color: #fff;
   font-size: 15px;
+}
+
+%styleCopyBtn {
+  color: $textColor;
+  margin: 0 0 0 20px;
+  padding: 3px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  svg {
+    font-size: 15px;
+  }
+  span > svg {
+    color: $mainColor;
+  }
+  &:active {
+    transform: scale(1.1);
+    color: $mainColor;
+  }
+}
+
+%styleOutput {
+  background-color: #fff;
+  height: 200px;
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 5px 0px $borderColor;
+  padding: 15px;
+}
+
+%styleButton {
+  padding: 8px 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: $mainColor;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  &:disabled {
+    background-color: $shadowColor;
+    cursor: no-drop;
+    box-shadow: none;
+  }
+  &:hover:disabled {
+    box-shadow: none;
+  }
+  &:hover {
+    box-shadow: 0px 0px 15px 0px $borderColor;
+  }
 }

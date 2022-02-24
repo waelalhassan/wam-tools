@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import { ImCopy } from "react-icons/im";
 import { ImSpinner11 } from "react-icons/im";
+import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
 
 const GeneratePassword = () => {

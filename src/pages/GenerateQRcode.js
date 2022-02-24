@@ -57,7 +57,7 @@ const GenerateQRcode = () => {
       <main className="wrapper-gene-qrcode">
         <div className="container">
           <div className="gene-qrcode">
-            <header className="text-center">
+            <header>
               <h1>QR code generator</h1>
               <p>Generate QR Code Easily for Free</p>
             </header>

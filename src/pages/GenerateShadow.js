@@ -76,7 +76,7 @@ const GenerateShadow = () => {
       <main className="wrapper-gene-shadow">
         <div className="container">
           <div className="gene-shadow">
-            <header className="text-center">
+            <header>
               <h1>Box shadow generator</h1>
               <p>Easily create css box shadow</p>
             </header>
