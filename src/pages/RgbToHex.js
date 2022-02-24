@@ -5,14 +5,15 @@ import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
 
 const RgbToHex = () => {
-  const [getHextColor, setHextColor] = useState("#ff0000");
+  const [getHextColor, setHextColor] = useState("#0a6fff");
   const [getMsg, setMsg] = useState({ data: "", err: false });
+  const [copy, setCopy] = useState(false);
 
   const inputRGB = useRef(this);
   const previewHEX = useRef(this);
 
   useEffect(() => {
-    inputRGB.current.value = "rgb(255, 0, 0)";
+    inputRGB.current.value = "rgb(10, 111, 255)";
   }, []);
 
   const handleRGB = () => {
@@ -126,44 +127,63 @@ const RgbToHex = () => {
     }
   };
 
+  const handlerCopy = () => {
+    window.navigator.clipboard.writeText(getHextColor);
+    setCopy((c) => (c = true));
+    setTimeout(() => {
+      setCopy((c) => (c = false));
+    }, 1500);
+  };
+
   return (
     <>
       <Nav />
       <main className="wrapper-rgb-to-hex">
         <div className="container">
           <div className="rgb-to-hex">
+            <header>
+              <h1>Convert RGB color to HEX color</h1>
+            </header>
             <div className="input">
               <div className="d-flex d-wrap-row">
                 <div className="col-6">
                   <textarea
                     ref={inputRGB}
-                    placeholder="Write RGB code here..."
+                    placeholder="Type RGB code here..."
                   ></textarea>
                   {getMsg.err ? (
                     <div className="alert-error">{getMsg.data}</div>
                   ) : (
                     ""
                   )}
+                  <div className="controls">
+                    <button onClick={handleRGB} type="button">
+                      Get Hex color
+                    </button>
+                  </div>
                 </div>
                 <div className="col-6">
                   <div
                     style={{ backgroundColor: getHextColor }}
                     ref={previewHEX}
                     className="box-color-preview d-grid place-content-center"
-                  >
-
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>
-
-            <div className="controls">
-              <button onClick={handleRGB} type="button">
-                Get Hex color
-              </button>
-            </div>
             <div className="output">
-              <div className="hex-color">
+              <div className="task-bar">
+                <button onClick={handlerCopy} type="button">
+                  {copy ? (
+                    <span>
+                      <ImCheckmark />
+                    </span>
+                  ) : (
+                    <ImCopy />
+                  )}
+                </button>
+              </div>
+              <div className="result">
                 <span>{getHextColor}</span>
               </div>
             </div>
