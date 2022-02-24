@@ -421,10 +421,9 @@ txet tool
       }
     }
     .task-bar {
-      .text-info {
-      }
       .parent-txet-copy {
         button {
+          @extend %styleCopyBtn;
         }
       }
     }

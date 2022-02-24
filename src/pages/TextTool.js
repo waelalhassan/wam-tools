@@ -8,6 +8,7 @@ const TextTool = () => {
   const [numChar, setNumChar] = useState(0);
   const [numWords, setNumWords] = useState(0);
   const upper = useRef(this);
+  const [copy, setCopy] = useState(false);
 
   const handleUppercase = () => {
     upper.current.value = upper.current.value.toUpperCase();
@@ -38,7 +39,13 @@ const TextTool = () => {
     setNumWords((NW) => (NW = NumberWords(upper.current.value)));
   };
 
-  const handlerCopy = () => {};
+  const handlerCopy = () => {
+    window.navigator.clipboard.writeText(upper.current.value);
+    setCopy((c) => (c = true));
+    setTimeout(() => {
+      setCopy((c) => (c = false));
+    }, 1500);
+  };
 
   return (
     <>
@@ -66,10 +73,9 @@ const TextTool = () => {
               </div>
               <div className="parent-txet-copy">
                 <button onClick={handlerCopy} type="button">
-                  <ImCopy />
-                  <ImCheckmark />
+                  {copy ? <span><ImCheckmark /></span> : <ImCopy />}
                 </button>
-              </div>
+              </div> 
             </div>
             <div className="input">
               <textarea ref={upper} onChange={handleLength}></textarea>
