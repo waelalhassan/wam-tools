@@ -9,6 +9,7 @@ import GenerateQRcode from "./pages/GenerateQRcode";
 import RgbToHex from "./pages/RgbToHex";
 import GenerateShadow from "./pages/GenerateShadow";
 import GenerateMD5Hash from "./pages/GenerateMD5Hash";
+import HexToRgb from "./pages/HexToRgb";
 
 const App = () => {
   return (
@@ -24,13 +25,10 @@ const App = () => {
         <Route path="/rgb-color-to-hex-color" element={<RgbToHex />}/>
         <Route path="/generate-shadow" element={<GenerateShadow />}/>
         <Route path="/generate-MD5-hash" element={<GenerateMD5Hash />}/>
+        <Route path="/hex-color-to-rgb-color" element={<HexToRgb />}/>
       </Routes>
     </Router>
   );
 };
 
 export default App;
-
-
-
-// export 'Switch' (imported as 'Switch') was not found in 'react-router-dom' (possible exports: BrowserRouter, HashRouter, Link, MemoryRouter, NavLink, Navigate, Outlet, Route, Router, Routes, UNSAFE_LocationContext, UNSAFE_NavigationContext, UNSAFE_RouteContext, createRoutesFromChildren, createSearchParams, generatePath, matchPath, matchRoutes, renderMatches, resolvePath, unstable_HistoryRouter, useHref, useInRouterContext, useLinkClickHandler, useLocation, useMatch, useNavigate, useNavigationType, useOutlet, useOutletContext, useParams, useResolvedPath, useRoutes, useSearchParams)

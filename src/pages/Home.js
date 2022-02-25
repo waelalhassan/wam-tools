@@ -37,6 +37,9 @@ const Home = () => {
               <li className="col-3">
                 <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
               </li>
+              <li className="col-3">
+                <Link to="/hex-color-to-rgb-color">Hex color to RGB</Link>
+              </li>
             </ul>
           </div>
         </div>
