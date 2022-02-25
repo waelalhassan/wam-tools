@@ -509,6 +509,12 @@ Hex color to RGB color
     width: 60%;
     padding: 3rem 0;
     margin: 0 auto;
+    header {
+      margin: 1.1rem 0;
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+    }
     .input {
       textarea {
         @extend %styleOutput;

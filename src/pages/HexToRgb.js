@@ -7,6 +7,7 @@ import { ImCheckmark } from "react-icons/im";
 const HexToRgb = () => {
   const [getRGB, setRGB] = useState("rgb(10, 111, 255)");
   const [errMsg, setErrMsg] = useState(false);
+  const [copy, setCopy] = useState(false);
   const RefHex = useRef(this);
 
   useEffect(() => {
@@ -42,6 +43,14 @@ const HexToRgb = () => {
     }
   };
 
+  const handlerCopy = () => {
+    window.navigator.clipboard.writeText(getRGB);
+    setCopy((c) => (c = true));
+    setTimeout(() => {
+      setCopy((c) => (c = false));
+    }, 1500);
+  };
+
   const BoxStyle = {
     backgroundColor: getRGB,
   };
@@ -57,13 +66,15 @@ const HexToRgb = () => {
             </header>
             <div className="input d-flex d-justify-center">
               <div className="col-6">
-                <textarea ref={RefHex}></textarea>
+                <textarea
+                  ref={RefHex}
+                  placeholder="Type Hex color here..."
+                ></textarea>
                 {errMsg ? (
                   <div className="alert-error">Not a hex color code</div>
                 ) : (
                   ""
                 )}
-
                 <div className="controls">
                   <button onClick={handlerHex} type="button">
                     get rgb color
@@ -75,7 +86,17 @@ const HexToRgb = () => {
               </div>
             </div>
             <div className="output">
-              <div className="task-bar"></div>
+              <div className="task-bar">
+                <button onClick={handlerCopy} type="button">
+                  {copy ? (
+                    <span>
+                      <ImCheckmark />
+                    </span>
+                  ) : (
+                    <ImCopy />
+                  )}
+                </button>
+              </div>
               <div className="result">{getRGB}</div>
             </div>
           </div>
