@@ -1,9 +1,10 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const Home = () => {
-  const listTools = [
+  const orginalData = [
     {
       id: 1,
       title: "Generate password",
@@ -51,6 +52,26 @@ const Home = () => {
     },
   ];
 
+  const [listTools, setListtools] = useState(orginalData);
+  const RefSearch = useRef(this);
+
+  const handlerSearch = (event) => {
+    let value = event.target.value;
+    let RegEx = new RegExp(value, "ig");
+
+    if (value != "") {
+      setListtools((list) => {
+        return list.filter((tool) => {
+          return tool.title.match(RegEx);
+        });
+      });
+    } else {
+      setListtools((list) => {
+        return (list = orginalData);
+      });
+    }
+  };
+
   return (
     <>
       <Nav />
@@ -61,7 +82,13 @@ const Home = () => {
               <h1>UR-TOOLS</h1>
               <p>Important tools for most users</p>
               <form>
-                <input className="w-80" type="text" placeholder="Search ..." />
+                <input
+                  ref={RefSearch}
+                  onChange={handlerSearch}
+                  className="w-80"
+                  type="text"
+                  placeholder="Search ..."
+                />
               </form>
             </header>
             <div className="list-tools">
