@@ -3,6 +3,54 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const Home = () => {
+  const listTools = [
+    {
+      id: 1,
+      title: "Generate password",
+      uri: "generate-password",
+    },
+    {
+      id: 2,
+      title: "Generate QRcode",
+      uri: "generate-QRcode",
+    },
+    {
+      id: 3,
+      title: "Generate css shadow",
+      uri: "generate-shadow",
+    },
+    {
+      id: 4,
+      title: "Generate MD5 Hash",
+      uri: "generate-MD5-hash",
+    },
+    {
+      id: 5,
+      title: "Base64 decode",
+      uri: "base64-decode",
+    },
+    {
+      id: 6,
+      title: "Base64 encode",
+      uri: "base64-encode",
+    },
+    {
+      id: 7,
+      title: "Text tool",
+      uri: "text-tool",
+    },
+    {
+      id: 8,
+      title: "RGB to hex Color",
+      uri: "rgb-color-to-hex-color",
+    },
+    {
+      id: 9,
+      title: "Hex color to RGB",
+      uri: "hex-color-to-rgb-color",
+    },
+  ];
+
   return (
     <>
       <Nav />
@@ -18,33 +66,13 @@ const Home = () => {
             </header>
             <div className="list-tools">
               <ul className="d-flex d-wrap-row d-align-center">
-                <li className="col-3">
-                  <Link to="/generate-password">Generate password</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/generate-QRcode">Generate QRcode</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/generate-shadow">Generate css shadow</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/generate-MD5-hash">Generate MD5 Hash</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/base64-decode">Base64 decode</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/base64-encode">Base64 encode</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/text-tool">Text tool</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
-                </li>
-                <li className="col-3">
-                  <Link to="/hex-color-to-rgb-color">Hex color to RGB</Link>
-                </li>
+                {listTools.map((tool) => {
+                  return (
+                    <li key={tool.id} className="col-3">
+                      <Link to={`/${tool.uri}`}>{tool.title}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
