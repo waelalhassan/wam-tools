@@ -53,6 +53,7 @@ const Home = () => {
   ];
 
   const [listTools, setListtools] = useState(orginalData);
+  const [isEmpty, setIsEmpty] = useState(true);
   const RefSearch = useRef(this);
 
   const handlerSearch = (event) => {
@@ -65,10 +66,12 @@ const Home = () => {
           return tool.title.match(RegEx);
         });
       });
+      setIsEmpty((value) => (value = false));
     } else {
       setListtools((list) => {
         return (list = orginalData);
       });
+      setIsEmpty((value) => (value = true));
     }
   };
 
@@ -78,7 +81,7 @@ const Home = () => {
       <main className="wrapper-home-page">
         <div className="container">
           <div className="home-page">
-            <header className="p-t-4 p-b-4 text-center">
+            <header className="p-t-4 p-b-2 text-center">
               <h1>UR-TOOLS</h1>
               <p>Important tools for most users</p>
               <form>
@@ -90,16 +93,22 @@ const Home = () => {
                   placeholder="Search ..."
                 />
               </form>
+              {isEmpty == false ? <h3 className="m-t-2">Result: {RefSearch.current.value}</h3> : ""}
             </header>
+
             <div className="list-tools">
               <ul className="d-flex d-wrap-row d-align-center">
-                {listTools.map((tool) => {
-                  return (
-                    <li key={tool.id} className="col-3">
-                      <Link to={`/${tool.uri}`}>{tool.title}</Link>
-                    </li>
-                  );
-                })}
+                {listTools.length > 0 ? (
+                  listTools.map((tool) => {
+                    return (
+                      <li key={tool.id} className="col-3">
+                        <Link to={`/${tool.uri}`}>{tool.title}</Link>
+                      </li>
+                    );
+                  })
+                ) : (
+                  <h3 className="no-result m-auto">No results</h3>
+                )}
               </ul>
             </div>
           </div>

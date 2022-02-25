@@ -215,6 +215,10 @@ padding
 /*===========================================
 margin
 ===========================================*/
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .m-1 {
   margin: 1rem;
 }
