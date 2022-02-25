@@ -109,6 +109,7 @@ home page
           a {
             display: inline-block;
             background-color: #fff;
+            color: $textColor;
             padding: 12px 30px;
             box-shadow: 0px 0px 2px 0px $shadowColor;
             transition: all 0.3s ease;
@@ -121,7 +122,7 @@ home page
       .no-result {
         font-size: 50px;
         opacity: 0.5;
-        user-select: none
+        user-select: none;
       }
     }
   }

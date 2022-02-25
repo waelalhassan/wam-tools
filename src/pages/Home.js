@@ -55,6 +55,7 @@ const Home = () => {
   const [listTools, setListtools] = useState(orginalData);
   const [isEmpty, setIsEmpty] = useState(true);
   const RefSearch = useRef(this);
+  const RefTitle = useRef(this);
 
   const handlerSearch = (event) => {
     let value = event.target.value;
@@ -75,6 +76,19 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    let title = RefTitle.current.textContent;
+    let count = 0;
+    let s = setInterval(() => {
+      count++;
+      if (title.length < count) {
+        clearInterval(s);
+      } else {
+        RefTitle.current.textContent = title.substring(0, count);
+      }
+    }, 150);
+  }, []);
+
   return (
     <>
       <Nav />
@@ -82,7 +96,7 @@ const Home = () => {
         <div className="container">
           <div className="home-page">
             <header className="p-t-4 p-b-2 text-center">
-              <h1>UR-TOOLS</h1>
+              <h1 ref={RefTitle}>UR-TOOLS</h1>
               <p>Important tools for most users</p>
               <form>
                 <input
@@ -93,7 +107,11 @@ const Home = () => {
                   placeholder="Search ..."
                 />
               </form>
-              {isEmpty == false ? <h3 className="m-t-2">Result: {RefSearch.current.value}</h3> : ""}
+              {isEmpty == false ? (
+                <h3 className="m-t-2">Result: {RefSearch.current.value}</h3>
+              ) : (
+                ""
+              )}
             </header>
 
             <div className="list-tools">
