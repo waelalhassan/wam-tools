@@ -217,8 +217,8 @@ const GeneratePassword = () => {
   };
 
   const handlerClearResult = () => {
-    setPwd((p) => p = "The password will appear here...");
-  }
+    setPwd((p) => (p = "The password will appear here..."));
+  };
 
   return (
     <>
@@ -291,11 +291,28 @@ const GeneratePassword = () => {
                   <ImSpinner11 />
                 </button>
                 <button onClick={handlerCopy} type="button">
-                  {copied ? <span><ImCheckmark /></span> : <ImCopy />}
+                  {copied ? (
+                    <span>
+                      <ImCheckmark />
+                    </span>
+                  ) : (
+                    <ImCopy />
+                  )}
                 </button>
-              </div> 
+              </div>
               <div className="result">{pwd}</div>
             </div>
+            <div className="about">
+            <p>The most common way hackers can hack accounts is by guessing your
+            password. Using simple and common passwords creates an opportunity
+            for hackers to gain access to your accounts. Since no one wants
+            their personal information stolen, use strong passwords to protect
+            your information. Thanks to this tool, people can create a strong
+            password that is impossible to guess.</p>
+            <h2>What is a password generator?</h2>
+            <p>Just as its name sounds, with it you can create custom, strong and
+            random passwords for each of your online accounts</p>
+          </div>
           </div>
         </div>
       </main>

@@ -33,6 +33,10 @@ const Base64Encode = () => {
       <main className="wrapper-base64-encode">
         <div className="container">
           <div className="base64-encode">
+            <header>
+              <h1>Base64 encode</h1>
+              <p>Through this tool you can encode text via Base64</p>
+            </header>
             <div className="input">
               <textarea ref={Ref} placeholder="Enter text here .."></textarea>
             </div>

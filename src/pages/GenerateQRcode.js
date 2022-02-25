@@ -82,6 +82,13 @@ const GenerateQRcode = () => {
             <div ref={srcImg} className="d-grid place-content-center output">
               {msg1 === "" ? "" : <div className="QR-code">{msg1}</div>}
             </div>
+
+            <div className="about">
+              <h2>Create a QR code</h2>
+              <p>Just enter your text, URL, SMS or vCard contact information. A QR code will be generated after clicking the "Generate" button.</p>
+              <p>You can click the "Download" button to get the generated QR code image in PNG format</p>
+            </div>
+
           </div>
         </div>
       </main>

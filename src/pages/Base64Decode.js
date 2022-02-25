@@ -45,6 +45,7 @@ const Base64Decode = () => {
           <div className="base64-decode">
             <header>
               <h1>Base64 decode</h1>
+              <p>Through this tool you can decode Base64 quickly</p>
             </header>
             <div className="input">
               <textarea
