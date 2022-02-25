@@ -73,21 +73,49 @@ nav {
 /*---------------------------------
 home page
 ---------------------------------*/
-main {
-  background-color: #fafafa;
-  .list-tools {
-    height: 209px;
-    ul {
-      height: inherit;
-      li {
-        a {
-          display: inline-block;
-          background-color: #fff;
-          padding: 12px 30px;
-          box-shadow: 0px 0px 2px 0px $shadowColor;
-          transition: all 0.3s ease;
-          &:hover {
-            box-shadow: 0px 1px 12px 0px $shadowColor;
+.wrapper-home-page {
+  @extend %bgColor;
+  height: 83vh;
+  .home-page {
+    header {
+      h1 {
+        margin: 0.5rem 0;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+      form {
+        input {
+          height: 50px;
+          border-radius: 25px;
+          font-size: 18px;
+          padding: 0 15px;
+          border: 1px solid $shadowColor;
+          color: $textColor;
+          box-shadow: 0px 0px 11px 0px $shadowColor;
+          &:focus {
+            box-shadow: 0px 0px 1px 1px $mainColor;
+          }
+          &::placeholder {
+            color: $borderColor;
+          }
+        }
+      }
+    }
+    .list-tools {
+      height: 209px;
+      ul {
+        height: inherit;
+        li {
+          a {
+            display: inline-block;
+            background-color: #fff;
+            padding: 12px 30px;
+            box-shadow: 0px 0px 2px 0px $shadowColor;
+            transition: all 0.3s ease;
+            &:hover {
+              box-shadow: 0px 1px 12px 0px $shadowColor;
+            }
           }
         }
       }
@@ -99,6 +127,7 @@ main {
 generate password page
 ---------------------------------*/
 .wrapper-gene-pwd {
+  @extend %bgColor;
   .gene-pwd {
     width: 60%;
     padding: 2rem 0;
@@ -145,9 +174,9 @@ generate password page
       }
     }
     .about {
-        p {
-          margin: 1rem 0;
-        }
+      p {
+        margin: 1rem 0;
+      }
     }
   }
 }
@@ -156,6 +185,7 @@ generate password page
 generate QRcode
 ---------------------------------*/
 .wrapper-gene-qrcode {
+  @extend %bgColor;
   .gene-qrcode {
     width: 60%;
     padding: 2rem 0;
@@ -212,6 +242,7 @@ generate QRcode
 generate box shadow
 ---------------------------------*/
 .wrapper-gene-shadow {
+  @extend %bgColor;
   .gene-shadow {
     width: 60%;
     padding: 2rem 0;
@@ -279,6 +310,7 @@ generate box shadow
 generate MD5 hash
 ---------------------------------*/
 .wrapper-md5-hash {
+  @extend %bgColor;
   .md5-hash {
     width: 60%;
     padding: 2rem 0;
@@ -327,6 +359,7 @@ generate MD5 hash
 base64 decode
 ---------------------------------*/
 .wrapper-base64-decode {
+  @extend %bgColor;
   .base64-decode {
     width: 60%;
     padding: 2rem 0;
@@ -383,6 +416,7 @@ base64 decode
 base64 encode
 ---------------------------------*/
 .wrapper-base64-encode {
+  @extend %bgColor;
   .base64-encode {
     width: 60%;
     padding: 2rem 0;
@@ -439,6 +473,7 @@ base64 encode
 txet tool
 ---------------------------------*/
 .wrapper-text-tool {
+  @extend %bgColor;
   .text-tool {
     width: 60%;
     padding: 2rem 0;
@@ -477,6 +512,7 @@ txet tool
 RGB color to Hex color
 ---------------------------------*/
 .wrapper-rgb-to-hex {
+  @extend %bgColor;
   .rgb-to-hex {
     width: 60%;
     padding: 3rem 0;
@@ -534,6 +570,7 @@ RGB color to Hex color
 Hex color to RGB color
 ---------------------------------*/
 .wrapper-hex-to-rgb {
+  @extend %bgColor;
   .hex-to-rgb {
     width: 60%;
     padding: 3rem 0;
@@ -596,6 +633,10 @@ footer {
   background-color: $dark;
   color: #fff;
   font-size: 15px;
+}
+
+%bgColor {
+  background-color: #fafafa;
 }
 
 %styleCopyBtn {
