@@ -239,6 +239,9 @@ const GeneratePassword = () => {
                   type="checkbox"
                   id="s-l"
                 />
+                <label htmlFor="s-l" className="custom-checkbox">
+                  <i></i>
+                </label>
               </div>
               <div className="item">
                 <label htmlFor="c-l">Includes capital letters </label>
@@ -248,6 +251,9 @@ const GeneratePassword = () => {
                   type="checkbox"
                   id="c-l"
                 />
+                <label htmlFor="c-l" className="custom-checkbox">
+                  <i></i>
+                </label>
               </div>
               <div className="item">
                 <label htmlFor="s-c">Includes special characters </label>
@@ -257,6 +263,9 @@ const GeneratePassword = () => {
                   type="checkbox"
                   id="s-c"
                 />
+                <label htmlFor="s-c" className="custom-checkbox">
+                  <i></i>
+                </label>
               </div>
               <div className="item">
                 <label htmlFor="d">Includes digits </label>
@@ -266,6 +275,9 @@ const GeneratePassword = () => {
                   type="checkbox"
                   id="d"
                 />
+                <label htmlFor="d" className="custom-checkbox">
+                  <i></i>
+                </label>
               </div>
               <div className="item">
                 <label htmlFor="l-p">length password </label>
@@ -303,16 +315,20 @@ const GeneratePassword = () => {
               <div className="result">{pwd}</div>
             </div>
             <div className="about">
-            <p>The most common way hackers can hack accounts is by guessing your
-            password. Using simple and common passwords creates an opportunity
-            for hackers to gain access to your accounts. Since no one wants
-            their personal information stolen, use strong passwords to protect
-            your information. Thanks to this tool, people can create a strong
-            password that is impossible to guess.</p>
-            <h2>What is a password generator?</h2>
-            <p>Just as its name sounds, with it you can create custom, strong and
-            random passwords for each of your online accounts</p>
-          </div>
+              <p>
+                The most common way hackers can hack accounts is by guessing
+                your password. Using simple and common passwords creates an
+                opportunity for hackers to gain access to your accounts. Since
+                no one wants their personal information stolen, use strong
+                passwords to protect your information. Thanks to this tool,
+                people can create a strong password that is impossible to guess.
+              </p>
+              <h2>What is a password generator?</h2>
+              <p>
+                Just as its name sounds, with it you can create custom, strong
+                and random passwords for each of your online accounts
+              </p>
+            </div>
           </div>
         </div>
       </main>
