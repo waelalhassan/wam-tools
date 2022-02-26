@@ -64,12 +64,8 @@ const TextTool = () => {
             </header>
             <div className="task-bar d-flex d-justify-between">
               <div className="text-info">
-                <span>
-                  <b>{numChar} </b>Characters |
-                </span>
-                <span>
-                  <b>{numWords} </b>Words
-                </span>
+                <span>Total Characters <b>{numChar} | </b></span>
+                <span>Total Words <b>{numWords} </b></span>
               </div>
               <div className="parent-txet-copy">
                 <button onClick={handlerCopy} type="button">
@@ -80,15 +76,15 @@ const TextTool = () => {
             <div className="input">
               <textarea ref={upper} onChange={handleLength}></textarea>
             </div>
-            <div className="controls-btns d-flex">
+            <div className="controls-btns d-flex d-sm-flex-column gap-1">
               <button onClick={handleUppercase} type="button">
-                Uppercase
+              Text upper case
               </button>
               <button onClick={handleLowercase} type="button">
-                Lowercase
+              Text lower case
               </button>
               <button onClick={handleFirstLetterUpper} type="button">
-                First letter uppercase
+              Text title case
               </button>
             </div>
           </div>
