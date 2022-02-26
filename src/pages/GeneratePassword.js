@@ -205,15 +205,17 @@ const GeneratePassword = () => {
   };
 
   const handlerCopy = () => {
-    window.navigator.clipboard.writeText(pwd);
-    setCopied((c) => {
-      return (c = true);
-    });
-    setTimeout(() => {
+    if (window.navigator.clipboard !== "undefined") {
+      window.navigator.clipboard.writeText(pwd);
       setCopied((c) => {
-        return (c = false);
+        return (c = true);
       });
-    }, 1000);
+      setTimeout(() => {
+        setCopied((c) => {
+          return (c = false);
+        });
+      }, 1000);
+    }
   };
 
   const handlerClearResult = () => {
