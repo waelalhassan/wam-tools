@@ -109,7 +109,7 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerXOffset}
                       type="range"
-                      min={0}
+                      min={-20}
                       defaultValue={0}
                       max={20}
                     />
@@ -120,7 +120,7 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerYOffset}
                       type="range"
-                      min={0}
+                      min={-20}
                       defaultValue={0}
                       max={20}
                     />
@@ -131,7 +131,7 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerBlur}
                       type="range"
-                      min={0}
+                      min={-20}
                       defaultValue={0}
                       max={20}
                     />
@@ -142,7 +142,7 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerSpread}
                       type="range"
-                      min={0}
+                      min={-20}
                       defaultValue={0}
                       max={20}
                     />
