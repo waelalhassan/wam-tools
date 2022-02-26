@@ -16,7 +16,11 @@ const Nav = () => {
   }, []);
 
   const HandlerMobileNav = (e) => {
-    e.target.nextElementSibling.classList.toggle("active");
+    let t = e.target;
+    if (e.target.localName == "span") {
+      t = t.parentElement;
+    }
+    t.nextElementSibling.classList.toggle("active");
   };
 
   return (
@@ -27,7 +31,9 @@ const Nav = () => {
             <Link to="/">UR-TOOLS</Link>
           </div>
           <div onClick={HandlerMobileNav} className="btn-nav-mobile active">
-            X
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
           <div className="wrapper-nav-list">
             <div className="brand-name-mobile">
