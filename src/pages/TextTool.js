@@ -77,13 +77,13 @@ const TextTool = () => {
               <textarea ref={upper} onChange={handleLength}></textarea>
             </div>
             <div className="controls-btns d-flex d-sm-flex-column gap-1">
-              <button className="w-sm-100" onClick={handleUppercase} type="button">
+              <button onClick={handleUppercase} type="button">
               Text upper case
               </button>
-              <button className="w-sm-100" onClick={handleLowercase} type="button">
+              <button onClick={handleLowercase} type="button">
               Text lower case
               </button>
-              <button className="w-sm-100" onClick={handleFirstLetterUpper} type="button">
+              <button onClick={handleFirstLetterUpper} type="button">
               Text title case
               </button>
             </div>
