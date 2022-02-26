@@ -102,7 +102,7 @@ const Home = () => {
                 <input
                   ref={RefSearch}
                   onChange={handlerSearch}
-                  className="w-80"
+                  className="w-80 w-sm-100"
                   type="text"
                   placeholder="Search ..."
                 />
@@ -115,11 +115,11 @@ const Home = () => {
             </header>
 
             <div className="list-tools">
-              <ul className="d-flex d-wrap-row d-align-center">
+              <ul className="d-flex d-wrap-row d-align-center d-justify-around">
                 {listTools.length > 0 ? (
                   listTools.map((tool) => {
                     return (
-                      <li key={tool.id} className="col-3">
+                      <li key={tool.id} className="col-3 col-sm-12">
                         <Link to={`/${tool.uri}`}>{tool.title}</Link>
                       </li>
                     );
