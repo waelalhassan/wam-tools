@@ -64,7 +64,8 @@ nav {
         }
         &:hover > .child-list {
           display: block;
-          animation: topToBottom .7s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: topToBottom 0.7s forwards
+            cubic-bezier(0.165, 0.84, 0.44, 1);
         }
       }
     }
@@ -151,6 +152,7 @@ generate password page
       .item {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 5px 0;
         label {
           cursor: pointer;
@@ -698,6 +700,15 @@ footer {
 }
 
 @media (max-width: 767.98px) {
+  header {
+    text-align: center;
+  }
+
+  .wrapper-gene-qrcode .gene-qrcode .output .QR-code {
+    font-size: 3rem;
+  }
+
+
   /*---------------------------------
 nav
 ---------------------------------*/
@@ -727,7 +738,6 @@ nav
         }
       }
 
-
       .brand-name-mobile {
         a {
           color: $mainColor;
@@ -745,7 +755,11 @@ nav
         transform: translateX(-100%);
         backdrop-filter: blur(5px);
         background-color: rgb(0, 0, 0, 0.7);
-        background: linear-gradient(to right, rgb(0, 0, 0, 0.7), rgb(0, 0, 0, .5));
+        background: linear-gradient(
+          to right,
+          rgb(0, 0, 0, 0.7),
+          rgb(0, 0, 0, 0.5)
+        );
       }
       ul {
         flex-direction: column;
@@ -754,7 +768,7 @@ nav
           width: 100%;
           padding: 15px 20px;
           transition: all 0.3s linear;
-          border-bottom: 0.2px solid rgba(255, 255, 255, .2);
+          border-bottom: 0.2px solid rgba(255, 255, 255, 0.2);
           cursor: pointer;
           color: #fff;
           a {
@@ -775,9 +789,9 @@ nav
               padding: 0;
               width: 100%;
               border: none;
-              border-left: 1px solid rgba(255, 255, 255, .7);
+              border-left: 1px solid rgba(255, 255, 255, 0.7);
               a {
-                margin: .5rem 0;
+                margin: 0.5rem 0;
                 padding: 7px 10px;
                 border-top-right-radius: 4px;
                 border-bottom-right-radius: 4px;
@@ -802,21 +816,50 @@ nav
         }
       }
       .wrapper-nav-list.active {
-        animation: rightToLeft .5s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+        animation: rightToLeft 0.5s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
       }
     }
   }
+
+  .gene-pwd,
+  .gene-qrcode,
+  .gene-shadow,
+  .md5-hash,
+  .base64-decode,
+  .base64-encode,
+  .text-tool,
+  .rgb-to-hex,
+  .hex-to-rgb {
+    width: 100% !important;
+  }
+
+  .parent-box-color-preview {
+    height: 200px;
+  }
+  
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
 }
 
 @keyframes topToBottom {
-  from {top: 50%; opacity: 0;}
-  to {top: 100%; opacity: 1;}
+  from {
+    top: 50%;
+    opacity: 0;
+  }
+  to {
+    top: 100%;
+    opacity: 1;
+  }
 }
 
 @keyframes rightToLeft {
-  from {transform: translateX(-100); opacity: 0;}
-  to {transform: translateX(0); opacity: 1;}
+  from {
+    transform: translateX(-100);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

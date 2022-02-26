@@ -146,7 +146,7 @@ const RgbToHex = () => {
             </header>
             <div className="input">
               <div className="d-flex d-wrap-row">
-                <div className="col-6">
+                <div className="col-6 col-sm-12">
                   <textarea
                     ref={inputRGB}
                     placeholder="Type RGB code here..."
@@ -162,7 +162,7 @@ const RgbToHex = () => {
                     </button>
                   </div>
                 </div>
-                <div className="col-6">
+                <div className="col-6 col-sm-12 parent-box-color-preview">
                   <div
                     style={{ backgroundColor: getHextColor }}
                     ref={previewHEX}

@@ -64,8 +64,8 @@ const HexToRgb = () => {
             <header>
               <h1>Convert HEX color to RGB color</h1>
             </header>
-            <div className="input d-flex d-justify-center">
-              <div className="col-6">
+            <div className="input d-flex d-wrap-row d-justify-center">
+              <div className="col-6 col-sm-12">
                 <textarea
                   ref={RefHex}
                   placeholder="Type Hex color here..."
@@ -81,7 +81,7 @@ const HexToRgb = () => {
                   </button>
                 </div>
               </div>
-              <div className="col-6">
+              <div className="col-6 col-sm-12 parent-box-color-preview">
                 <div style={BoxStyle} className="box-color-preview"></div>
               </div>
             </div>

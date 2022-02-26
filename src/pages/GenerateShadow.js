@@ -80,7 +80,7 @@ const GenerateShadow = () => {
               <h1>Box shadow generator</h1>
               <p>With this tool, you can quickly create a CSS box-shadow for your website. It comes with many options and it appears instantly.</p>
             </header>
-            <div className="input d-flex d-justify-between d-align-center">
+            <div className="input d-flex d-justify-between d-align-center d-sm-flex-column row-sm-gap-2">
               <div className="controls">
                 <div className="controls-1">
                   <form>
