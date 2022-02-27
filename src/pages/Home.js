@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const Home = () => {
-  const orginalData = [
+  let orginalData = [
     {
       id: 1,
       title: "Generate password",
@@ -52,20 +52,20 @@ const Home = () => {
     },
   ];
 
-  const [listTools, setListtools] = useState(orginalData);
+  const [listTools, setListtools] = useState([]);
   const [isEmpty, setIsEmpty] = useState(true);
   const RefSearch = useRef(this);
   const RefTitle = useRef(this);
 
   const handlerSearch = (event) => {
     let value = event.target.value;
-    let RegEx = new RegExp(value, "ig");
-
     if (value != "") {
-      setListtools((list) => {
-        return list.filter((tool) => {
+      
+      setListtools((prev) => {
+        let RegEx = new RegExp(value, "ig");
+        return (prev = orginalData.filter((tool) => {
           return tool.title.match(RegEx);
-        });
+        }));
       });
       setIsEmpty((value) => (value = false));
     } else {
@@ -77,16 +77,18 @@ const Home = () => {
   };
 
   useEffect(() => {
-    let title = RefTitle.current.textContent;
-    let count = 0;
-    let s = setInterval(() => {
-      count++;
-      if (title.length < count) {
-        clearInterval(s);
-      } else {
-        RefTitle.current.textContent = title.substring(0, count);
-      }
-    }, 150);
+    if (RefTitle.current) {
+      let title = RefTitle.current.textContent;
+      let count = 0;
+      let s = setInterval(() => {
+        count++;
+        if (title.length < count) {
+          clearInterval(s);
+        } else {
+          RefTitle.current.textContent = title.substring(0, count);
+        }
+      }, 150);
+    }
   }, []);
 
   return (
@@ -101,7 +103,7 @@ const Home = () => {
               <form>
                 <input
                   ref={RefSearch}
-                  onChange={handlerSearch}
+                  onInput={handlerSearch}
                   className="w-80 w-sm-100"
                   type="text"
                   placeholder="Search ..."
