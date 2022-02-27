@@ -14,7 +14,7 @@ const Nav = () => {
       <div className="container">
         <div className="wrapper-nav d-flex d-justify-between d-align-center">
           <div className="brand-name">
-            <Link to="/">UR-TOOLS</Link>
+            <Link to="/">WAM-TOOLS</Link>
           </div>
           <div onClick={HandlerMobileNav} className="btn-nav-mobile active">
             <span></span>

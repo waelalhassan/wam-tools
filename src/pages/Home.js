@@ -96,14 +96,14 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Home page</title>
+        <title>WAM-TOOLS</title>
       </Helmet>
       <Nav />
       <main className="wrapper-home-page">
         <div className="container">
           <div className="home-page">
             <header className="p-t-4 p-b-2 text-center">
-              <h1 ref={RefTitle}>UR-TOOLS</h1>
+              <h1 ref={RefTitle}>WAM-TOOLS</h1>
               <p>Important tools for most users</p>
               <form>
                 <input
