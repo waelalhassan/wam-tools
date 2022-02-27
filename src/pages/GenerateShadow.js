@@ -86,24 +86,34 @@ const GenerateShadow = () => {
             <div className="input d-flex d-justify-between d-align-center d-sm-flex-column row-sm-gap-2">
               <div className="controls">
                 <div className="controls-1">
-                  <form>
-                    <label htmlFor="outset">Outset</label>
-                    <input
-                      onChange={handlerType}
-                      data-type="outset"
-                      type="radio"
-                      defaultChecked
-                      name="type_shadow"
-                      id="outset"
-                    />
-                    <label htmlFor="inset">Inset</label>
-                    <input
-                      onChange={handlerType}
-                      data-type="inset"
-                      type="radio"
-                      name="type_shadow"
-                      id="inset"
-                    />
+                  <form className="d-flex d-justify-around">
+                    <div className="radio-btn">
+                      <label htmlFor="outset">Outset</label>
+                      <input
+                        onChange={handlerType}
+                        data-type="outset"
+                        type="radio"
+                        defaultChecked
+                        name="type_shadow"
+                        id="outset"
+                      />
+                      <span>
+                        <i></i>
+                      </span>
+                    </div>
+                    <div className="radio-btn">
+                      <label htmlFor="inset">Inset</label>
+                      <input
+                        onChange={handlerType}
+                        data-type="inset"
+                        type="radio"
+                        name="type_shadow"
+                        id="inset"
+                      />
+                      <span>
+                        <i></i>
+                      </span>
+                    </div>
                   </form>
                 </div>
                 <div className="controls-2">
@@ -118,9 +128,9 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerXOffset}
                       type="range"
-                      min={-20}
+                      min={-50}
                       defaultValue={0}
-                      max={20}
+                      max={50}
                     />
                   </div>
                   <div className="parent-range">
@@ -133,9 +143,9 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerYOffset}
                       type="range"
-                      min={-20}
+                      min={-50}
                       defaultValue={0}
-                      max={20}
+                      max={50}
                     />
                   </div>
                   <div className="parent-range">
@@ -148,22 +158,24 @@ const GenerateShadow = () => {
                     <input
                       onChange={handlerBlur}
                       type="range"
-                      min={-20}
+                      min={0}
                       defaultValue={0}
-                      max={20}
+                      max={50}
                     />
                   </div>
                   <div className="parent-range">
                     <div className="d-flex d-justify-between range-info">
-                    <label>Spread</label>
-                    <span><b>{Spread}</b></span>
+                      <label>Spread</label>
+                      <span>
+                        <b>{Spread}</b>
+                      </span>
                     </div>
                     <input
                       onChange={handlerSpread}
                       type="range"
-                      min={-20}
+                      min={0}
                       defaultValue={0}
-                      max={20}
+                      max={50}
                     />
                   </div>
                   <div className="parent-color d-flex d-justify-between">
@@ -172,7 +184,7 @@ const GenerateShadow = () => {
                       onChange={handlerColor}
                       defaultValue={Color}
                       type="color"
-                      />
+                    />
                   </div>
                 </div>
               </div>
@@ -191,9 +203,7 @@ const GenerateShadow = () => {
                       <ImCheckmark />
                     </span>
                   ) : (
-                    <span>
-                      <ImCopy />
-                    </span>
+                    <ImCopy />
                   )}
                 </button>
               </div>
