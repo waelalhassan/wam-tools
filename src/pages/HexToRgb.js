@@ -9,6 +9,7 @@ const HexToRgb = () => {
   const [errMsg, setErrMsg] = useState(false);
   const [copy, setCopy] = useState(false);
   const RefHex = useRef(this);
+  const RefResult = useRef(this);
 
   useEffect(() => {
     RefHex.current.value = "#0a6fff";
@@ -44,11 +45,23 @@ const HexToRgb = () => {
   };
 
   const handlerCopy = () => {
-    window.navigator.clipboard.writeText(getRGB);
-    setCopy((c) => (c = true));
-    setTimeout(() => {
-      setCopy((c) => (c = false));
-    }, 1500);
+    if (window.isSecureContext) {
+      window.navigator.clipboard.writeText(getRGB);
+      if (window.getSelection) {
+        const sele = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(RefResult.current);
+        sele.removeAllRanges();
+        sele.addRange(range);
+      }
+
+      setCopy((c) => (c = true));
+      setTimeout(() => {
+        setCopy((c) => (c = false));
+      }, 1500);
+    } else {
+      alert("An unexpected error occurred, please try again later");
+    }
   };
 
   const BoxStyle = {
@@ -97,7 +110,9 @@ const HexToRgb = () => {
                   )}
                 </button>
               </div>
-              <div className="result">{getRGB}</div>
+              <div ref={RefResult} className="result">
+                {getRGB}
+              </div>
             </div>
           </div>
         </div>

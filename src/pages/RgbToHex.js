@@ -11,6 +11,7 @@ const RgbToHex = () => {
 
   const inputRGB = useRef(this);
   const previewHEX = useRef(this);
+  const RefResult = useRef(this);
 
   useEffect(() => {
     inputRGB.current.value = "rgb(10, 111, 255)";
@@ -128,11 +129,22 @@ const RgbToHex = () => {
   };
 
   const handlerCopy = () => {
-    window.navigator.clipboard.writeText(getHextColor);
-    setCopy((c) => (c = true));
-    setTimeout(() => {
-      setCopy((c) => (c = false));
-    }, 1500);
+    if (window.isSecureContext) {
+      navigator.clipboard.writeText(getHextColor);
+      if (window.getSelection) {
+        const sele = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(RefResult.current);
+        sele.removeAllRanges();
+        sele.addRange(range);
+      }
+      setCopy((c) => (c = true));
+      setTimeout(() => {
+        setCopy((c) => (c = false));
+      }, 1500);
+    } else {
+      alert("An unexpected error occurred, please try again later");
+    }
   };
 
   return (
@@ -184,7 +196,9 @@ const RgbToHex = () => {
                 </button>
               </div>
               <div className="result">
-                <span>{getHextColor}</span>
+                <p ref={RefResult}>
+                {getHextColor}
+                </p>
               </div>
             </div>
           </div>
