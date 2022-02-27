@@ -2,8 +2,8 @@
 @import "./custom-framework.css";
 
 $borderColor: #d6d6d6;
-$mainColor: #0a6fff;
-$darkColor: #043a87;
+$mainColor: #7366ff;
+$darkColor: #484194;
 $shadowColor: #d4d4d4;
 $textColor: #525252;
 $dark: #1f1f1f;
@@ -78,6 +78,7 @@ home page
 .wrapper-home-page {
   @extend %bgColor;
   padding-bottom: 100px;
+  min-height: 83vh;
   .home-page {
     header {
       h1 {
@@ -127,6 +128,7 @@ home page
         font-size: 50px;
         opacity: 0.5;
         user-select: none;
+        margin-bottom: 36px
       }
     }
   }
