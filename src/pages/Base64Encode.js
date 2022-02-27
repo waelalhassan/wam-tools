@@ -9,6 +9,7 @@ const Base64Encode = () => {
   const [copy, setCopy] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
   const Ref = useRef();
+  const RefResult = useRef();
 
   const handleEncode = () => {
     if (Ref.current.value.trim() != "") {
@@ -20,11 +21,24 @@ const Base64Encode = () => {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(encode);
-    setCopy((c) => (c = true));
-    setTimeout(() => {
-      setCopy((c) => (c = false));
-    }, 1500);
+    if (encode !== "") {
+      if (window.isSecureContext) {
+        navigator.clipboard.writeText(encode);
+        if (window.getSelection) {
+          const sele = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(RefResult.current);
+          sele.removeAllRanges();
+          sele.addRange(range);
+        }
+        setCopy((c) => (c = true));
+        setTimeout(() => {
+          setCopy((c) => (c = false));
+        }, 1500);
+      } else {
+        alert();
+      }
+    }
   };
 
   return (
@@ -62,7 +76,7 @@ const Base64Encode = () => {
                   )}
                 </button>
               </div>
-              <div className="result">
+              <div ref={RefResult} className="result">
                 {encode == "" ? "Base64 code will appear here ..." : encode}
               </div>
             </div>
