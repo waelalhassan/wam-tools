@@ -10,6 +10,7 @@ const GenerateMD5Hash = () => {
   const [copy, setCopy] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
   const RefInput = useRef(this);
+  const RefResult = useRef(this);
 
   const handlerMD5 = () => {
     if (RefInput.current.value != "") {
@@ -21,11 +22,31 @@ const GenerateMD5Hash = () => {
   };
 
   const handlerCopyMD5 = () => {
-    navigator.clipboard.writeText(getMD5);
-    setCopy((c) => (c = true));
-    setTimeout(() => {
-      setCopy((c) => (c = false));
-    }, 1500);
+
+    if (getMD5 !== "") {
+      if (window.isSecureContext) {
+        navigator.clipboard.writeText(getMD5);
+        if (window.getSelection) {
+          const sele = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(RefResult.current);
+          sele.removeAllRanges();
+          sele.addRange(range);
+        }
+
+        setCopy((c) => (c = true));
+        setTimeout(() => {
+          setCopy((c) => (c = false));
+        }, 1500);
+      } else {
+        alert("An unexpected error occurred, please try again later");
+      }
+
+    }
+
+
+
+
   };
 
   return (
@@ -65,7 +86,7 @@ const GenerateMD5Hash = () => {
               </div>
               <div className="result">
                 {getMD5 !== "" ? (
-                  <p>{getMD5}</p>
+                  <p ref={RefResult}>{getMD5}</p>
                 ) : (
                   <p>The result will appear here ...</p>
                 )}

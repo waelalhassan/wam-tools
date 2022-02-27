@@ -77,13 +77,8 @@ const Nav = () => {
                   <li>
                     <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
                   </li>
-                </ul>
-              </li>
-              <li>
-                Calculators
-                <ul className="child-list">
                   <li>
-                    <Link to="/age-calculator">Age calculator</Link>
+                    <Link to="/hex-color-to-rgb-color">RGB to hex Color</Link>
                   </li>
                 </ul>
               </li>
