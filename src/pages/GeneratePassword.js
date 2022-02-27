@@ -6,7 +6,7 @@ import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
 
 const GeneratePassword = () => {
-  const [pwd, setPwd] = useState("The password will appear here...");
+  const [pwd, setPwd] = useState("");
   const [copied, setCopied] = useState(false);
 
   const check_SL = useRef(this);
@@ -15,6 +15,7 @@ const GeneratePassword = () => {
   const check_SC = useRef(this);
   const length_pwd = useRef(this);
   const HandlerButton = useRef(this);
+  const RefResult = useRef(this);
 
   const LettersL = [
     "a",
@@ -205,16 +206,28 @@ const GeneratePassword = () => {
   };
 
   const handlerCopy = () => {
-    if (window.navigator.clipboard !== "undefined") {
-      window.navigator.clipboard.writeText(pwd);
-      setCopied((c) => {
-        return (c = true);
-      });
-      setTimeout(() => {
+    if (pwd !== "") {
+      if (window.isSecureContext) {
+        window.navigator.clipboard.writeText(pwd);
+        if (window.getSelection) {
+          const sele = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(RefResult.current);
+          sele.removeAllRanges();
+          sele.addRange(range);
+        }
+
         setCopied((c) => {
-          return (c = false);
+          return (c = true);
         });
-      }, 1000);
+        setTimeout(() => {
+          setCopied((c) => {
+            return (c = false);
+          });
+        }, 1000);
+      } else {
+        alert("An unexpected error occurred, please try again later");
+      }
     }
   };
 
@@ -314,7 +327,13 @@ const GeneratePassword = () => {
                   )}
                 </button>
               </div>
-              <div className="result">{pwd}</div>
+              <div className="result">
+                {pwd !== "" ? (
+                  <p ref={RefResult}>{pwd}</p>
+                ) : (
+                  "The password will appear here..."
+                )}
+              </div>
             </div>
             <div className="about">
               <p>

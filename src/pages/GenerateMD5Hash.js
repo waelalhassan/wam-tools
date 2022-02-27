@@ -22,7 +22,6 @@ const GenerateMD5Hash = () => {
   };
 
   const handlerCopyMD5 = () => {
-
     if (getMD5 !== "") {
       if (window.isSecureContext) {
         navigator.clipboard.writeText(getMD5);
@@ -41,12 +40,7 @@ const GenerateMD5Hash = () => {
       } else {
         alert("An unexpected error occurred, please try again later");
       }
-
     }
-
-
-
-
   };
 
   return (
@@ -65,7 +59,11 @@ const GenerateMD5Hash = () => {
                 placeholder="Type text here ..."
               ></textarea>
             </div>
-            {isEmpty ? <div className="alert-error">Please write text</div> : ""}
+            {isEmpty ? (
+              <div className="alert-error">Please write text</div>
+            ) : (
+              ""
+            )}
             <div className="controls">
               <button onClick={handlerMD5} type="button">
                 Generate
