@@ -9,6 +9,7 @@ const Base64Decode = () => {
   const [getError, setError] = useState(false);
   const [copy, serCopy] = useState(false);
   const RefInput = useRef(this);
+  const RefResult = useRef(this);
 
   const handledecode = () => {
     function is64() {
@@ -30,11 +31,25 @@ const Base64Decode = () => {
   };
 
   const handlerCopy = () => {
-    window.navigator.clipboard.writeText(getCode);
-    serCopy((c) => (c = true));
-    setTimeout(() => {
-      serCopy((c) => (c = false));
-    }, 1500);
+    if (getCode !== "") {
+      if (window.isSecureContext) {
+        navigator.clipboard.writeText(getCode);
+
+        if (window.getSelection) {
+          const sele = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(RefResult.current);
+          sele.removeAllRanges();
+          sele.addRange(range);
+        }
+        serCopy((c) => (c = true));
+        setTimeout(() => {
+          serCopy((c) => (c = false));
+        }, 1500);
+      } else {
+        alert("An unexpected error occurred, please try again later");
+      }
+    }
   };
 
   return (
@@ -77,7 +92,7 @@ const Base64Decode = () => {
               </div>
               <div className="result">
                 {getCode != "" ? (
-                  <p>{getCode}</p>
+                  <p ref={RefResult}>{getCode}</p>
                 ) : (
                   <p>The text will appear here ...</p>
                 )}

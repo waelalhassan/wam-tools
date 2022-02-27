@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
-import { ImSpinner11 } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
 
 const GenerateShadow = () => {
@@ -46,11 +45,26 @@ const GenerateShadow = () => {
   };
 
   const handlerCopy = () => {
-    setIsCopy((c) => (c = true));
-    window.navigator.clipboard.writeText(RefCode.current.textContent);
-    setTimeout(() => {
-      setIsCopy((c) => (c = false));
-    }, 1000);
+    if (window.isSecureContext) {
+      navigator.clipboard.writeText(RefCode.current.textContent);
+      copyText(RefCode.current);
+      setIsCopy((c) => (c = true));
+      setTimeout(() => {
+        setIsCopy((c) => (c = false));
+      }, 1000);
+    } else {
+      alert("An unexpected error occurred, please try again later");
+    }
+
+    function copyText(ele) {
+      if (window.getSelection) {
+        const sele = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(ele);
+        sele.removeAllRanges();
+        sele.addRange(range);
+      }
+    }
   };
 
   useEffect(() => {
@@ -84,7 +98,7 @@ const GenerateShadow = () => {
               </p>
             </header>
             <div className="input d-flex d-justify-between d-align-center d-sm-flex-column row-sm-gap-2">
-              <div className="controls">
+              <div className="controls w-sm-100">
                 <div className="controls-1">
                   <form className="d-flex d-justify-around">
                     <div className="radio-btn">
