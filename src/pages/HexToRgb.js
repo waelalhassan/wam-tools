@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
+import {Helmet} from "react-helmet";
 
 const HexToRgb = () => {
   const [getRGB, setRGB] = useState("rgb(10, 111, 255)");
@@ -70,6 +71,9 @@ const HexToRgb = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Convert HEX color to RGB color</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-hex-to-rgb">
         <div className="container">

@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import {Helmet} from "react-helmet";
 
 const GenerateQRcode = () => {
   const srcImg = useRef(this);
@@ -53,6 +54,9 @@ const GenerateQRcode = () => {
 
   return (
     <>
+      <Helmet>
+        <title>QR code generator</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-gene-qrcode">
         <div className="container">
@@ -73,7 +77,11 @@ const GenerateQRcode = () => {
                   Generate
                 </button>
                 {checkForDownload && (
-                  <button className="btn-download" onClick={handleDownloadQr} type="button">
+                  <button
+                    className="btn-download"
+                    onClick={handleDownloadQr}
+                    type="button"
+                  >
                     Download
                   </button>
                 )}
@@ -85,10 +93,15 @@ const GenerateQRcode = () => {
 
             <div className="about">
               <h2>Create a QR code</h2>
-              <p>Just enter your text, URL, SMS or vCard contact information. A QR code will be generated after clicking the "Generate" button.</p>
-              <p>You can click the "Download" button to get the generated QR code image in PNG format</p>
+              <p>
+                Just enter your text, URL, SMS or vCard contact information. A
+                QR code will be generated after clicking the "Generate" button.
+              </p>
+              <p>
+                You can click the "Download" button to get the generated QR code
+                image in PNG format
+              </p>
             </div>
-
           </div>
         </div>
       </main>

@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
-
+import {Helmet} from "react-helmet";
 const Base64Decode = () => {
   const [getCode, setCode] = useState("");
   const [getError, setError] = useState(false);
@@ -54,6 +54,9 @@ const Base64Decode = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Base 64 Decode</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-base64-decode">
         <div className="container">

@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
+import {Helmet} from "react-helmet";
 
 const GenerateMD5Hash = () => {
   const [getMD5, setMD5] = useState("");
@@ -45,6 +46,9 @@ const GenerateMD5Hash = () => {
 
   return (
     <>
+      <Helmet>
+        <title>MD5 hash generator</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-md5-hash">
         <div className="container">

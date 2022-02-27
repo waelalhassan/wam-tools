@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
+import {Helmet} from "react-helmet";
 
 const Base64Encode = () => {
   const [encode, setEncode] = useState("");
@@ -43,6 +44,9 @@ const Base64Encode = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Base 64 encode</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-base64-encode">
         <div className="container">

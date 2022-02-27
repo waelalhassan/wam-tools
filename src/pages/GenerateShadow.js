@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
+import {Helmet} from "react-helmet";
 
 const GenerateShadow = () => {
   const [XOffset, setXOffset] = useState(3);
@@ -86,12 +87,15 @@ const GenerateShadow = () => {
 
   return (
     <>
+      <Helmet>
+        <title>CSS Box shadow generator</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-gene-shadow">
         <div className="container">
           <div className="gene-shadow">
             <header>
-              <h1>Box shadow generator</h1>
+              <h1>CSS Box shadow generator</h1>
               <p>
                 With this tool, you can quickly create a CSS box-shadow for your
                 website. It comes with many options and it appears instantly.

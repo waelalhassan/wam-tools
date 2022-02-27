@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { ImSpinner11 } from "react-icons/im";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
+import {Helmet} from "react-helmet";
 
 const GeneratePassword = () => {
   const [pwd, setPwd] = useState("");
@@ -237,6 +238,9 @@ const GeneratePassword = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Password Generator</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-gene-pwd">
         <div className="container">

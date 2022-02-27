@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ImCopy } from "react-icons/im";
 import { ImCheckmark } from "react-icons/im";
+import { Helmet } from "react-helmet";
 
 const TextTool = () => {
   const [numChar, setNumChar] = useState(0);
@@ -49,6 +50,9 @@ const TextTool = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Text tool</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-text-tool">
         <div className="container">
@@ -64,27 +68,37 @@ const TextTool = () => {
             </header>
             <div className="task-bar d-flex d-justify-between">
               <div className="text-info">
-                <span>Total Characters <b>{numChar} | </b></span>
-                <span>Total Words <b>{numWords} </b></span>
+                <span>
+                  Total Characters <b>{numChar} | </b>
+                </span>
+                <span>
+                  Total Words <b>{numWords} </b>
+                </span>
               </div>
               <div className="parent-txet-copy">
                 <button onClick={handlerCopy} type="button">
-                  {copy ? <span><ImCheckmark /></span> : <ImCopy />}
+                  {copy ? (
+                    <span>
+                      <ImCheckmark />
+                    </span>
+                  ) : (
+                    <ImCopy />
+                  )}
                 </button>
-              </div> 
+              </div>
             </div>
             <div className="input">
               <textarea ref={upper} onChange={handleLength}></textarea>
             </div>
             <div className="controls-btns d-flex d-sm-flex-column gap-1">
               <button onClick={handleUppercase} type="button">
-              Text upper case
+                Text upper case
               </button>
               <button onClick={handleLowercase} type="button">
-              Text lower case
+                Text lower case
               </button>
               <button onClick={handleFirstLetterUpper} type="button">
-              Text title case
+                Text title case
               </button>
             </div>
           </div>

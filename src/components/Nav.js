@@ -64,7 +64,7 @@ const Nav = () => {
                     <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
                   </li>
                   <li>
-                    <Link to="/hex-color-to-rgb-color">RGB to hex Color</Link>
+                    <Link to="/hex-color-to-rgb-color">Hex to RGB Color</Link>
                   </li>
                 </ul>
               </li>

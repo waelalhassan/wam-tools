@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   let orginalData = [
@@ -60,7 +61,6 @@ const Home = () => {
   const handlerSearch = (event) => {
     let value = event.target.value;
     if (value != "") {
-      
       setListtools((prev) => {
         let RegEx = new RegExp(value, "ig");
         return (prev = orginalData.filter((tool) => {
@@ -77,8 +77,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-
-    setListtools((data) => data = orginalData);
+    setListtools((data) => (data = orginalData));
 
     if (RefTitle.current) {
       let title = RefTitle.current.textContent;
@@ -96,6 +95,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Home page</title>
+      </Helmet>
       <Nav />
       <main className="wrapper-home-page">
         <div className="container">
