@@ -77,6 +77,9 @@ const Home = () => {
   };
 
   useEffect(() => {
+
+    setListtools((data) => data = orginalData);
+
     if (RefTitle.current) {
       let title = RefTitle.current.textContent;
       let count = 0;
