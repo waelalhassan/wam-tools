@@ -46,10 +46,10 @@ const GenerateShadow = () => {
   };
 
   const handlerCopy = () => {
-    setIsCopy((c) => c = true);
-    window.navigator.clipboard.writeText(RefCode.current.textContent)
+    setIsCopy((c) => (c = true));
+    window.navigator.clipboard.writeText(RefCode.current.textContent);
     setTimeout(() => {
-      setIsCopy((c) => c = false);
+      setIsCopy((c) => (c = false));
     }, 1000);
   };
 
@@ -78,7 +78,10 @@ const GenerateShadow = () => {
           <div className="gene-shadow">
             <header>
               <h1>Box shadow generator</h1>
-              <p>With this tool, you can quickly create a CSS box-shadow for your website. It comes with many options and it appears instantly.</p>
+              <p>
+                With this tool, you can quickly create a CSS box-shadow for your
+                website. It comes with many options and it appears instantly.
+              </p>
             </header>
             <div className="input d-flex d-justify-between d-align-center d-sm-flex-column row-sm-gap-2">
               <div className="controls">
@@ -104,8 +107,14 @@ const GenerateShadow = () => {
                   </form>
                 </div>
                 <div className="controls-2">
-                  <div className="parent-radio">
-                    <label>X offset</label>
+                  <div className="parent-range">
+                    <div className="d-flex d-justify-between range-info">
+                      <label>X offset: </label>
+                      <span>
+                        {" "}
+                        <b>{XOffset}</b>
+                      </span>
+                    </div>
                     <input
                       onChange={handlerXOffset}
                       type="range"
@@ -113,10 +122,14 @@ const GenerateShadow = () => {
                       defaultValue={0}
                       max={20}
                     />
-                    <span>{XOffset}</span>
                   </div>
-                  <div className="parent-radio">
-                    <label>Y offset</label>
+                  <div className="parent-range">
+                    <div className="d-flex d-justify-between range-info">
+                      <label>Y offset</label>
+                      <span>
+                        <b>{YOffset}</b>
+                      </span>
+                    </div>
                     <input
                       onChange={handlerYOffset}
                       type="range"
@@ -124,10 +137,14 @@ const GenerateShadow = () => {
                       defaultValue={0}
                       max={20}
                     />
-                    <span>{YOffset}</span>
                   </div>
-                  <div className="parent-radio">
-                    <label>Blur</label>
+                  <div className="parent-range">
+                    <div className="d-flex d-justify-between range-info">
+                      <label>Blur</label>
+                      <span>
+                        <b>{Blur}</b>
+                      </span>
+                    </div>
                     <input
                       onChange={handlerBlur}
                       type="range"
@@ -135,10 +152,12 @@ const GenerateShadow = () => {
                       defaultValue={0}
                       max={20}
                     />
-                    <span>{Blur}</span>
                   </div>
-                  <div className="parent-radio">
+                  <div className="parent-range">
+                    <div className="d-flex d-justify-between range-info">
                     <label>Spread</label>
+                    <span><b>{Spread}</b></span>
+                    </div>
                     <input
                       onChange={handlerSpread}
                       type="range"
@@ -146,15 +165,14 @@ const GenerateShadow = () => {
                       defaultValue={0}
                       max={20}
                     />
-                    <span>{Spread}</span>
                   </div>
-                  <div className="parent-radio">
+                  <div className="parent-color d-flex d-justify-between">
                     <label>Color</label>
                     <input
                       onChange={handlerColor}
                       defaultValue={Color}
                       type="color"
-                    />
+                      />
                   </div>
                 </div>
               </div>
