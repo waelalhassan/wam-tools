@@ -40,6 +40,14 @@ nav {
         padding: 15px 20px;
         transition: all 0.3s linear;
         cursor: pointer;
+        .list-item {
+          display: flex;
+          align-items: center;
+          column-gap: 5px;
+          svg {
+            fill: #b9b9b9;
+          }
+        }
         a {
           color: $textColor;
           &:active,
@@ -143,7 +151,7 @@ home page
         font-size: 50px;
         opacity: 0.5;
         user-select: none;
-        margin-bottom: 36px
+        margin-bottom: 36px;
       }
     }
   }
@@ -334,8 +342,8 @@ generate box shadow
                 height: 15px;
                 border: 1px solid $mainColor;
                 border-radius: 50%;
-                background-color: #FFF;
-                box-shadow:inset 0px 0px 2px 0px rgb(0, 0, 0, 0.2);
+                background-color: #fff;
+                box-shadow: inset 0px 0px 2px 0px rgb(0, 0, 0, 0.2);
                 i {
                   display: inline-block;
                   width: 10px;
@@ -343,7 +351,7 @@ generate box shadow
                   background-color: $mainColor;
                   border-radius: 50%;
                   transform: scale(0);
-                  transition: all .3s ease-in;
+                  transition: all 0.3s ease-in;
                 }
               }
               input[type="radio"] {
@@ -879,6 +887,10 @@ nav
           color: #fff;
           a {
             color: #fff;
+            &:active,
+            &:visited {
+              color: #fff;
+            }
           }
           .child-list {
             position: relative;
@@ -944,8 +956,6 @@ nav
   }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
 
 @keyframes topToBottom {
   from {

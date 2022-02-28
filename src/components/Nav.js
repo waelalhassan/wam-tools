@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {FaAngleDown} from "react-icons/fa"
 
 const Nav = () => {
   const HandlerMobileNav = (e) => {
@@ -27,7 +28,10 @@ const Nav = () => {
             </div>
             <ul className="d-flex d-justify-between d-align-center">
               <li>
+                <span className="list-item">
                 Generate
+                <FaAngleDown/>
+                </span>
                 <ul className="child-list">
                   <li>
                     <Link to="/generate-password">Generate password</Link>
@@ -44,7 +48,10 @@ const Nav = () => {
                 </ul>
               </li>
               <li>
+                <span className="list-item">
                 Encode/Decode
+                <FaAngleDown/>
+                </span>
                 <ul className="child-list">
                   <li>
                     <Link to="/base64-decode">Base64 decode</Link>
@@ -58,7 +65,10 @@ const Nav = () => {
                 <Link to="/text-tool">Text tool</Link>
               </li>
               <li>
+                <span className="list-item">
                 Convert
+                <FaAngleDown/>
+                </span>
                 <ul className="child-list">
                   <li>
                     <Link to="/rgb-color-to-hex-color">RGB to hex Color</Link>
