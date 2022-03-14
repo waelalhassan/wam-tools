@@ -1,5 +1,8 @@
 # WAM-TOOLS
 A set of tools that most people usually use
+
+[Demo Link](https://wam-tools.netlify.app/)
+
 ## First release V 1.0
 ### Tools List
 - Password generator
